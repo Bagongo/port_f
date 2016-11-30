@@ -36,24 +36,34 @@ body {
     background-color: transparent;
 }    
 
-.name{
+#name{
     margin: 20px 0 4px 20px;
+    font-family: Ubuntu, monospace, Monaco, "Lucida Console";
+}
+    
+#bar-name{
+    display: none;
+    font-weight: bold;
+    margin: 8px 10px 0 20px;
     font-family: Ubuntu, monospace, Monaco, "Lucida Console";
 }
 
 #first-bar{
     width: 80%;
     height: 35px;
+    line-height: 35px;
+    position: fixed;
+    z-index: 1001;
     overflow: hidden;
     background-color: aquamarine;
-    border-radius: 5px;
-    margin: 0 0 20px 10px;
+    border-radius: 0px;
+    margin: 0 0 20px 0px;
     animation: slide-right 2s ease;
     animation-fill-mode: forwards;
 }
         
 @keyframes slide-right{
-  from{width: 10%;}
+  from{width: 0%;}
   to{width: 80%}; 
 }
    
@@ -62,11 +72,13 @@ body {
     text-decoration: none;
     margin: 0;
     border: none;
+    border-radius: 0;
 } 
     
 #menu-toggle{
     color: white;
     background-color: lightgray;
+    border-radius: 0;
 } 
     
 #menu-toggle:hover{
@@ -89,16 +101,16 @@ body {
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 150px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
-    width: 0;
+    left: 200px;
+    width: 150px;
     height: 0%;
-    margin-left: -250px;
+    margin-left: -200px;
     overflow-y: hidden;
     background-color: #b9b9b9;
     
@@ -117,7 +129,7 @@ body {
 }    
     
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 0px;
 }
 
 #page-content-wrapper {
@@ -128,7 +140,7 @@ body {
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -150px;
 }
 
 /* Sidebar Styles */
@@ -136,16 +148,11 @@ body {
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 150px;
     margin: 0;
     padding: 0;
     list-style: none;
-}
-    
-.visible{
-    visibility: visible;
-}    
-    
+}  
     
 .sidebar-nav li {
     text-indent: 20px;
@@ -186,7 +193,7 @@ body {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 150px;
     }
 
     #wrapper.toggled {
@@ -194,7 +201,7 @@ body {
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 150px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -213,12 +220,49 @@ body {
 }
     
 @media(max-width:768px) {
+    
     #first-bar{
         height: 30px;
+        width: 100%;
+        overflow: scroll;
+    }
+    
+    #first-bar > * {
+      display: inline-block;
+    }
+    
+    #bar-name{
+        display: none;
     }
     
     .btn-default {
         font-size:80%;
+    }
+    
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #wrapper.toggled {
+        padding-left: 150px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 150px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
     }
 }
     
@@ -227,16 +271,23 @@ body {
 
 <body>
 
-    <h1 class="name">Alessandro Chen</h1>
-       
+<div class="row">
+    <div class="col-md-12">
+        <h1 id="name">Dan Chen</h1>
+    </div>
+</div>    
+    
+
+           
+ <div id="wrapper">
+     
     <div id="first-bar">    
         <a class="btn btn-default btn-md float-left" id="menu-toggle" ><i class="fa fa-bars"></i></a>
+        <h4 class="float-left" id="bar-name"></h4>
         <a class="btn btn-default btn-md float-right transparent"><i class="fa fa-github"></i> Github</a>
         <a class="btn btn-default btn-md float-right transparent"><i class="fa fa-twitter"></i> Twitter</a>
         <a class="btn btn-default btn-md float-right transparent"><i class="fa fa-linkedin"></i> Linkedin</a>
     </div>
-           
- <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -278,12 +329,12 @@ body {
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Bio</h3>
-                            <p>Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.</p>
-                        
-                            <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                            <p>Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.</p>
                         
                         </div>
                 </div>
+                
+                
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -296,11 +347,44 @@ body {
     
     $(document).ready(function(){
         
-         $("#menu-toggle").click(function(e) {
+        /*
+        function CalcTopBarProperW()
+        {
+            var procWidth = $(window).width() - parseInt($("#sidebar-wrapper").css("width"));
+            return {width : (procWidth.toString() + "px")} ;
+        }
+        
+        $("#first-bar").animate(CalcTopBarProperW(), 1000);
+        */
+        
+        /* set bar name euqal to title name */
+        $("#bar-name").html($("#name").html());
+          
+        /* toggle button behavior when pressed.... */
+        $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
-            $(this).toggleClass("visible"); 
         });
+        
+        /* sets proper bars' position when scrolling + adds name in firsrtbar (can be used to dinamically name sections) */
+        var barsTop = $("#first-bar").css("top"); 
+        
+        $(window).scroll(function() {
+            var height = $(window).scrollTop();
+
+            if(height > 20) {
+                $("#first-bar, #sidebar-wrapper").css("top", "0px");
+                if ($(window).width() >= 768)
+                    $("#bar-name").fadeIn(100);
+            }
+            else
+            {
+                $("#first-bar, #sidebar-wrapper").css("top", barsTop);
+                $("#bar-name").fadeOut(100);
+            }
+        });
+        
+        
         
     });
     </script>

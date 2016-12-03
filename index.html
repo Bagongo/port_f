@@ -34,6 +34,10 @@ body {
     
 .transparent{
     background-color: transparent;
+}  
+    
+.clearer{
+   clear: both;
 }    
 
 #name{
@@ -49,22 +53,25 @@ body {
 }
 
 #first-bar{
-    width: 80%;
+    width: 0;
     height: 35px;
-    line-height: 35px;
     position: fixed;
     z-index: 1001;
     overflow: hidden;
     background-color: aquamarine;
     border-radius: 0px;
-    margin: 0 0 20px 0px;
+    padding-right: 150px;
     animation: slide-right 2s ease;
     animation-fill-mode: forwards;
 }
+    
+#first-bar > * {
+    display: inline-block;
+}
         
 @keyframes slide-right{
-  from{width: 0%;}
-  to{width: 80%}; 
+    from{width: 0%;}
+    to{width: 100%} ; 
 }
    
 #first-bar > a{
@@ -88,7 +95,11 @@ body {
 #first-bar > a:not(:first-child):hover{
     color: #fff;
     background-color: lightgray;
-}  
+} 
+    
+.project-cont{
+        
+}    
 
 /* Toggle Styles */
 
@@ -142,6 +153,10 @@ body {
     position: absolute;
     margin-right: -150px;
 }
+    
+#first-bar.toggled{
+    padding: 0;  
+}    
 
 /* Sidebar Styles */
 
@@ -225,14 +240,11 @@ body {
         height: 30px;
         width: 100%;
         overflow: scroll;
-    }
-    
-    #first-bar > * {
-      display: inline-block;
+        padding: 0px;
     }
     
     #bar-name{
-        display: none;
+        font-size: .7em;
     }
     
     .btn-default {
@@ -276,19 +288,20 @@ body {
         <h1 id="name">Dan Chen</h1>
     </div>
 </div>    
-    
-
-           
+        
  <div id="wrapper">
      
-    <div id="first-bar">    
+     <div id="first-bar">    
         <a class="btn btn-default btn-md float-left" id="menu-toggle" ><i class="fa fa-bars"></i></a>
         <h4 class="float-left" id="bar-name"></h4>
         <a class="btn btn-default btn-md float-right transparent"><i class="fa fa-github"></i> Github</a>
         <a class="btn btn-default btn-md float-right transparent"><i class="fa fa-twitter"></i> Twitter</a>
         <a class="btn btn-default btn-md float-right transparent"><i class="fa fa-linkedin"></i> Linkedin</a>
     </div>
+     
+     <div class="clearer"></div>
 
+     
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -335,6 +348,9 @@ body {
                 </div>
                 
                 
+                </div>
+                
+                
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -346,35 +362,24 @@ body {
     <script>
     
     $(document).ready(function(){
-        
-        /*
-        function CalcTopBarProperW()
-        {
-            var procWidth = $(window).width() - parseInt($("#sidebar-wrapper").css("width"));
-            return {width : (procWidth.toString() + "px")} ;
-        }
-        
-        $("#first-bar").animate(CalcTopBarProperW(), 1000);
-        */
-        
+
         /* set bar name euqal to title name */
         $("#bar-name").html($("#name").html());
           
         /* toggle button behavior when pressed.... */
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
+            $("#wrapper, #first-bar").toggleClass("toggled");
         });
         
         /* sets proper bars' position when scrolling + adds name in firsrtbar (can be used to dinamically name sections) */
-        var barsTop = $("#first-bar").css("top"); 
-        
+        var barsTop = $("#first-bar").css("top");        
         $(window).scroll(function() {
             var height = $(window).scrollTop();
 
             if(height > 20) {
                 $("#first-bar, #sidebar-wrapper").css("top", "0px");
-                if ($(window).width() >= 768)
+                //if ($(window).width() >= 768)
                     $("#bar-name").fadeIn(100);
             }
             else

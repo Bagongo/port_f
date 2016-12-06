@@ -97,8 +97,53 @@ body {
     background-color: lightgray;
 } 
     
-.project-cont{
-        
+.proj-container{
+    
+    max-width: 350px;
+    top: 0px;
+    left: 0px;
+    padding: 0 12px 12px 12px;
+    margin: 25px 15px 0 15px;
+    background-color: skyblue;
+    border-radius: 10px;
+    box-shadow: -8px 8px 10px #888888;
+    
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease; /* IE10 is actually unprefixed */
+    -o-transition: all .4s ease;
+    transition: all .4s ease;
+} 
+
+.proj-container:hover{
+    top: -10px;
+    left: 5px;
+    box-shadow: -20px 15px 15px #888888;
+}
+    
+.proj-container > h4{
+    color: black;
+    margin: 15px;
+} 
+    
+.proj-info-panel{
+    position: absolute;
+    margin: 0 auto;
+    width: 90%;
+    height: 80%;
+    left: 0;
+    right: 0;
+    padding: 0 12px 12px 12px;
+    background-color: beige;
+}
+    
+.proj-info-panel.toggled{
+    bottom: 0%;
+    background-color: grey;    
+}    
+    
+.project-info-btn{
+    float: right;
 }    
 
 /* Toggle Styles */
@@ -341,18 +386,36 @@ body {
                 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3>Bio</h3>
+                        <h3 class="well well-sm">Bio</h3>
                             <p>Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.Donec auctor ipsum eros, consequat ultricies turpis pretium eu. Morbi pretium urna tortor, eu lacinia nibh aliquam sit amet. Integer pulvinar arcu eget tempus bibendum. Donec luctus mollis dui id molestie. Suspendisse ultrices a est ac egestas. Cras urna orci, imperdiet vitae nisl at, cursus pharetra diam. Donec egestas iaculis felis nec posuere. Fusce dictum ultricies diam. Nullam semper lobortis turpis at sollicitudin. Maecenas nunc sem, cursus commodo egestas ut, pellentesque eget libero. Etiam neque purus, condimentum et viverra aliquam, sodales a massa. Vivamus ullamcorper molestie ligula in accumsan. Sed commodo tortor at est scelerisque convallis.</p>
                         
                         </div>
                 </div>
                 
-                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="well well-sm">Web Apps</h3>
+                        
+                        <div class="proj-ext-container container text-center">
+                        
+                            <div class="proj-container col-md-4 col-xs-12">
+                                <h4 class="proj-title">Tribute Page
+                                <i class="fa fa-info project-info-btn"></i>
+                                </h4>
+                                <div class="embed-responsive embed-responsive-4by3">
+                                   <iframe class="embed-responsive-item"src='//codepen.io/Bagongo/embed/QGjZjV/?height=265&theme-id=0&default-tab=result&embed-version=2'></iframe>
+                                </div>
+                                <div class="proj-info-panel"></div>
+                            </div>
+                        
+                        </div>
+                        
+                    </div>
                 </div>
-                
-                
-            </div>
-        </div>
+                        
+                    </div>
+                </div>
+        
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -387,6 +450,11 @@ body {
                 $("#first-bar, #sidebar-wrapper").css("top", barsTop);
                 $("#bar-name").fadeOut(100);
             }
+        });
+        
+        /* project panels inner funcitons */
+        $(".proj-title > i").hover(function(){
+            $($(this).parent().siblings(".proj-info-panel")).toggleClass("toggled");
         });
         
         

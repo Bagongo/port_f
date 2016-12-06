@@ -98,15 +98,16 @@ body {
 } 
     
 .proj-container{
-    
     max-width: 350px;
     top: 0px;
     left: 0px;
     padding: 0 12px 12px 12px;
     margin: 25px 15px 0 15px;
-    background-color: skyblue;
+    overflow-y: hidden;
     border-radius: 10px;
     box-shadow: -8px 8px 10px #888888;
+    
+    background-color: beige;
     
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
@@ -122,28 +123,48 @@ body {
 }
     
 .proj-container > h4{
-    color: black;
     margin: 15px;
+} 
+
+.proj-container iframe{
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out; /* IE10 is actually unprefixed */
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+    
+.proj-container iframe.toggled{
+    filter: blur(4px);    
 } 
     
 .proj-info-panel{
     position: absolute;
     margin: 0 auto;
-    width: 90%;
-    height: 80%;
+    width: 100%;
+    height: 84%;
+    bottom: -84%;
     left: 0;
     right: 0;
-    padding: 0 12px 12px 12px;
-    background-color: beige;
+    padding: 20px;
+    background-color: rgba(211, 211, 211, 0.2);
+    transition: all .5s ease-in-out;
+    opacity: 0.2;
 }
     
 .proj-info-panel.toggled{
     bottom: 0%;
-    background-color: grey;    
+    background-color: rgba(211, 211, 211, 0.7);
+    opacity: 1;
 }    
     
 .project-info-btn{
+    color: black;
     float: right;
+}
+    
+.project-info-btn:hover{
+    color: darkgray;
 }    
 
 /* Toggle Styles */
@@ -396,19 +417,20 @@ body {
                     <div class="col-md-12">
                         <h3 class="well well-sm">Web Apps</h3>
                         
-                        <div class="proj-ext-container container text-center">
-                        
                             <div class="proj-container col-md-4 col-xs-12">
                                 <h4 class="proj-title">Tribute Page
-                                <i class="fa fa-info project-info-btn"></i>
+                                <i class="fa fa-info-circle project-info-btn"></i>
                                 </h4>
                                 <div class="embed-responsive embed-responsive-4by3">
                                    <iframe class="embed-responsive-item"src='//codepen.io/Bagongo/embed/QGjZjV/?height=265&theme-id=0&default-tab=result&embed-version=2'></iframe>
                                 </div>
-                                <div class="proj-info-panel"></div>
+                                <div class="proj-info-panel">
+                                    <p>A simple landing page created as an exercise for freecodecamp.com</p> <br />
+                                    <p>CODE: <span> </span></p> <br />
+                                    <p>FRAMEWORKS: <span> </span></p> <br />
+                                </div>
                             </div>
                         
-                        </div>
                         
                     </div>
                 </div>
@@ -455,6 +477,7 @@ body {
         /* project panels inner funcitons */
         $(".proj-title > i").hover(function(){
             $($(this).parent().siblings(".proj-info-panel")).toggleClass("toggled");
+            $($(this).parent().parent().find("iframe")).toggleClass("toggled");
         });
         
         

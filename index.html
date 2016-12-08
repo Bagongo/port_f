@@ -63,6 +63,7 @@ body {
     background-color: aquamarine;
     border-radius: 0px;
     padding-right: 150px;
+    box-shadow: 15px 10px 15px #414141;
     
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -109,6 +110,7 @@ body {
     display: table;
     width: 100%;
     margin: 70px 0 20px 0;
+    border-radius: 5px;
 }
     
 .section-title{
@@ -116,15 +118,15 @@ body {
     float: left;
     margin: 0 0 0 -10px;
     padding: 5px 10px 5px 10px;
-    border: 4px solid lightgray;
-    border-radius: 10px;
+    /*border: 4px solid lightgray; */
+    border-radius: 5px;
 } 
     
 .section-icon{
     display: table-cell;
     float: right;
-    margin: 0;
-    padding: 8px 20px 0 0;
+    /*padding: 8px 20px 0 0; if border around title..... */
+    padding: 5px 20px 0 0;
 }
 
 #about .section-title-stripe, #about .section-title{
@@ -232,6 +234,7 @@ body {
     margin-left: -200px;
     overflow-y: hidden;
     background-color: #b9b9b9;
+    box-shadow: 15px 16px 15px #414141;
     
     animation: slide-down 2s 0.5s ease;
     animation-fill-mode: forwards;
@@ -263,7 +266,7 @@ body {
 }
     
 #first-bar.toggled{
-    padding: 0;  
+    padding-right: 0;  
 }    
 
 /* Sidebar Styles */
@@ -352,7 +355,8 @@ body {
     }
     
     #bar-name{
-        font-size: .7em;
+        margin-left: 10px;
+        font-size: .9em;
     }
     
     .btn-default {
@@ -443,7 +447,7 @@ body {
             <div class="container-fluid">
                 
                 <div class="row">
-                    <div class="col-lg-12" id="about">
+                    <div class="col-lg-12 section" id="about">
                         
                         <div class="section-title-stripe">
                             <h3 class="section-title">About</h3>
@@ -456,7 +460,7 @@ body {
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-12" id="web-apps">
+                    <div class="col-md-12 section" id="web-apps">
                         
                         <div class="section-title-stripe">
                             <h3 class="section-title">Web Apps</h3>
@@ -481,7 +485,7 @@ body {
                 </div>
                 
                 <div class="row">
-                    <div class="col-md-12" id="games">
+                    <div class="col-md-12 section" id="games">
                         
                         <div class="section-title-stripe">
                             <h3 class="section-title">Games</h3>
@@ -517,9 +521,6 @@ body {
     <script>
     
     $(document).ready(function(){
-
-        /* set bar name euqal to title name */
-        $("#bar-name").html($("#name").html());
           
         /* toggle button behavior when pressed.... */
         $("#menu-toggle").click(function(e) {
@@ -532,16 +533,10 @@ body {
         $(window).scroll(function() {
             var height = $(window).scrollTop();
 
-            if(height > 20) {
+            if(height > 20)
                 $("#first-bar, #sidebar-wrapper").css("top", "0px");
-                //if ($(window).width() >= 768)
-                    $("#bar-name").fadeIn(100);
-            }
             else
-            {
                 $("#first-bar, #sidebar-wrapper").css("top", barsTop);
-                $("#bar-name").fadeOut(100);
-            }
         });
         
         /* Set all the project by data-pulling */
@@ -605,12 +600,52 @@ body {
         });
         
         /* waypoints functionality */
-        $(".section-title").waypoint(function(element){
-            var DOMelement = $(this.element);
+        var $barName = $("#bar-name");
+        var originBarCol = $barName.parent().css("background-color");
+               
+        $(".section-title").waypoint(function(scrolling){
+        
+            if(scrolling == "down")
+            {
+                var title = $(this.element);
+                var barName;
+                
+                if(title.html() === undefined)
+                {
+                    barName = "";
+                    $barName.parent().css("background-color", originBarCol);
+                }
+                else
+                    barName = title.html();
+                
+                $barName.html(barName); 
+                $barName.parent().css("background-color", title.css("background-color"));
+
+            }   
         });
         
+        $(".section-title").waypoint(function(scrolling){
         
+            if(scrolling == "up")
+            {
+                var title = $(this.element).closest(".row").prev().find(".section-title");
+                var barName;
+                
+                if(title.html() === undefined)
+                {
+                    barName = "";
+                    $barName.parent().css("background-color", originBarCol);
+                }
+                else
+                    barName = title.html();
+                
+                $barName.html(barName);
+                $barName.parent().css("background-color", title.css("background-color"));
+            }   
+        }, {offset : "15%"});
+       
     });
+        
     </script>
    
 </body>

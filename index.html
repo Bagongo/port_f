@@ -8,15 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <script src="https://use.fontawesome.com/c4baa82464.js"></script>
     
     <script src="jquery.waypoints.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
-    
-    <script src="https://use.fontawesome.com/c4baa82464.js"></script>
      
 </head>
     
@@ -137,7 +140,16 @@ body {
     
 #games .section-title-stripe, #games .section-title, #games .proj-container{
     background-color: hotpink;
-}    
+} 
+    
+#contacts .section-title-stripe, #contacts .section-title, #contacts .form-group{
+    background-color: lightcoral;
+}  
+    
+#contacts .form-group {
+    border-radius: 20px;
+}
+
     
 .proj-container{
     max-width: 350px;
@@ -505,6 +517,39 @@ body {
                         </div>
                         
                      </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-12 section" id="contacts">
+                        
+                        <div class="section-title-stripe">
+                            <h3 class="section-title">Contacts</h3>
+                            <i class="section-icon fa fa-envelope fa-2x"></i>
+                        </div>
+                        
+                        <form>
+                            
+                            <div class="col-md-6 col-md-offset-3 text-center">
+                                <div class="form-group">
+                                        <label for="email">Your Email Address:</label>
+                                        <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>    
+                            <div class="col-md-6 col-md-offset-3 text-center">    
+                                <div class="form-group">
+                                    <label for="msg">Your Message:</label>
+                                    <textarea type="text" class="form-control" id="msg" rows="8"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        
+                        </form>
+                        
+                        
+                        
+                    </div>
                 </div>
                         
             </div>

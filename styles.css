@@ -27,7 +27,6 @@ body {
     display: none;
     font-weight: bold;
     margin: 8px 10px 0 20px;
-    font-family: Ubuntu, monospace, Monaco, "Lucida Console";
 }
 
 #first-bar{
@@ -39,7 +38,7 @@ body {
     background-color: aquamarine;
     border-radius: 0px;
     padding-right: 150px;
-    box-shadow: 15px 10px 15px #414141;
+    box-shadow: 15px 10px 15px #272727;
     
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -81,6 +80,11 @@ body {
     color: #fff;
     background-color: lightgray;
 }
+
+.{
+    display: flex;
+    justify-content: space-around;
+}
     
 .section-title-stripe{
     width: 100%;
@@ -115,12 +119,27 @@ body {
     background-color: hotpink;
 } 
     
-#contacts .section-title-stripe, #contacts .section-title, #contacts .form-group{
+#contacts .section-title-stripe, #contacts .section-title, #msg-container{
     background-color: lightcoral;
 }  
     
-#contacts .form-group {
+#msg-container {
     border-radius: 20px;
+}
+
+#contacts .form-control:focus {
+    border-color: lightgray;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(170, 170, 170, 0.6);
+}
+
+#contacts .btn{
+    font-weight: bolder;
+    border: 4px solid lightcoral;
+    background-color: rgba(240, 128, 128, 0.7);
+}
+
+#contacts .btn:active{
+    background-color: rgba(240, 128, 128, .8);
 }
 
     
@@ -218,6 +237,7 @@ body {
     overflow-y: hidden;
     background-color: #b9b9b9;
     box-shadow: 20px 16px 15px #414141;
+    font-family: Ubuntu;
     
     animation: slide-down 2s 0.5s ease;
     animation-fill-mode: forwards;

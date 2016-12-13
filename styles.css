@@ -81,9 +81,8 @@ body {
     background-color: lightgray;
 }
 
-.{
-    display: flex;
-    justify-content: space-around;
+.section{
+    text-align: center;
 }
     
 .section-title-stripe{
@@ -142,7 +141,37 @@ body {
     background-color: rgba(240, 128, 128, .8);
 }
 
+.social-ext-container{
+    margin-top: 50px;
+}
+
+.soc-buttons-container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-container{
+    width: 20%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgba(240, 128, 128, 0.9);
+    padding-top: 4px;
     
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease; /* IE10 is actually unprefixed */
+    -o-transition: all .4s ease;
+    transition: all .4s ease;    
+}
+
+.social-container:hover{
+    width: 22%;
+    height: 55px;
+    background-color: rgba(240, 128, 128, 1);
+    padding-top: 7px;
+}
+   
 .proj-container{
     max-width: 350px;
     top: 0px;
@@ -300,8 +329,7 @@ body {
     background: lightgray;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
     text-decoration: none;
 }
 

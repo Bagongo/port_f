@@ -31,34 +31,38 @@ $(document).ready(function(){
         return "#" + hexCode;
     }
     
+    var $colorSpan = $("#screen").find("span");
+    
     setInterval(function(){
         
-        var $colorSpan = $("#screen").find("span");        
-        $colorSpan.html("");
         var col = sectionColors[Math.floor(Math.random() * sectionColors.length)];
         var colHex = col["hex"];
-        var colRgb = col["rgb"];
+        var colRgb = col["rgb"];       
+        $colorSpan.css("background-color", "lightgray");
         
-        var i = 0;
-        
+        setTimeout(function(){
+            $colorSpan.html("");
+            $colorSpan.css("background-color", "black");
+            myLoop();
+        }, 250);
+                
+        var i = 0;       
         function myLoop(){           
             setTimeout(function () {  
                 $colorSpan.append(colHex[i]);
-                //alert(colHex[i]);
                 i++;
                 if (i < colHex.length)
                     myLoop();
                 else
                 {
-                    $colorSpan.append(";")
-                    $("#top-anim h2").css("color", colRgb);
+                    setTimeout(function(){
+                        $colorSpan.append(";");
+                        $("#top-anim h2").css("color", colRgb);
+                    }, 500);                   
                 }
             }, 200)
-        }
-        
-        myLoop();
-        
-    }, 3000);
+        }       
+    }, 4000);
     
     /* toggle button behavior when pressed.... */
     $("#menu-toggle").click(function(e) {

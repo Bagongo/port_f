@@ -1,5 +1,65 @@
 $(document).ready(function(){
 
+    /* collect color of every section */
+    var sectionColors = [];
+    
+    /* push rgb and hex property objects to sectionColorArray */
+    $(".section-title-stripe").each(function(){
+        
+        var rgbCode = $(this).css("background-color");
+        var hexCode = rgbCode.match(/\d+/g);
+        
+        var color = {
+            rgb : $(this).css("background-color"),
+            hex : rgbToHex(hexCode)
+        };
+            
+        sectionColors.push(color);
+    });
+    
+    /* converts every r, g, b in rgb strings array to hex string  */
+    function rgbToHex(rgb) 
+    {
+        var hexCode = ""; 
+        
+        for(var i=0; i < rgb.length; i++)
+        {
+            var hex = parseInt(rgb[i]).toString(16);
+            hex = hex.length == 1 ? "0" + hex : hex;           
+            hexCode += hex;
+        }        
+        return "#" + hexCode;
+    }
+    
+    setInterval(function(){
+        
+        var $colorSpan = $("#screen").find("span");        
+        $colorSpan.html("");
+        var col = sectionColors[Math.floor(Math.random() * sectionColors.length)];
+        var colHex = col["hex"];
+        var colRgb = col["rgb"];
+        
+        var i = 0;
+        
+        function myLoop(){           
+            setTimeout(function () {  
+                $colorSpan.append(colHex[i]);
+                //alert(colHex[i]);
+                i++;
+                if (i < colHex.length)
+                    myLoop();
+                else
+                {
+                    $colorSpan.append(";")
+                    $("#top-anim h2").css("color", colRgb);
+                }
+            }, 200)
+        }
+        
+        myLoop();
+        
+    }, 3000);
+    
     /* toggle button behavior when pressed.... */
     $("#menu-toggle").click(function(e) {
         e.preventDefault();

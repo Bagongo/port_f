@@ -37,6 +37,7 @@ body {
     height: 100px;
     margin: 0 auto;
     text-align: left;
+    overflow: hidden;
     padding: 20px 0 0 10px;
     border: 3px solid #535353;
     border-radius: 5px;
@@ -46,7 +47,7 @@ body {
 
 #keyboard{
     width: 160px;
-    height: 80px;
+    height: 85px;
     margin: 0 auto;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
@@ -54,25 +55,26 @@ body {
     background-color: lightgray;
 }
 
-.key{
-    display: inline-block;
-    width: 8px;
+#keyboard .key, #keyboard #space-bar
+{
+    float: left;
     height: 8px;
+    margin: 1px;
     border-radius: 2px;
-    background-color: black;
+    background-color: black;     
+}
+
+.key{
+    width: 8px;
 }
 
 #space-bar{
-    display: inline-block;
-    width: 50px;
-    height: 8px;
-    border-radius: 2px;
-    background-color: black;    
+    width: 38px;      
 }
 
 #track-pad{
     display: inline-block;
-    margin: 0 auto;
+    margin: 5px 0 0 0;
     width: 40px;
     height: 25px;
     border-radius: 2px;

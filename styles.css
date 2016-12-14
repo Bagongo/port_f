@@ -5,7 +5,7 @@ body {
 .float-left{
     float: left;
 }
-
+ 
 .float-right{
     float: right;
 }
@@ -21,6 +21,15 @@ body {
 #name{
     margin: 20px 0 4px 20px;
     font-family: Ubuntu, monospace, Monaco, "Lucida Console";
+}
+
+#head-001{
+    position: relative;
+    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #top-anim{
@@ -78,8 +87,8 @@ body {
     width: 40px;
     height: 25px;
     border-radius: 2px;
-    /* border: 1px solid darkgray; */
-    background-color: darkgray;
+    /*border: 1px solid darkgray; use with #c9c9c9 bg */ 
+    background-color: #bcbcbc;
 }
     
 #bar-name{

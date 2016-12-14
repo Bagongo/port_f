@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    /* collect color of every section */
+    /* collect color of each section */
     var sectionColors = [];
     
     /* push rgb and hex property objects to sectionColorArray */
@@ -20,8 +20,7 @@ $(document).ready(function(){
     /* converts every r, g, b in rgb strings array to hex string  */
     function rgbToHex(rgb) 
     {
-        var hexCode = ""; 
-        
+        var hexCode = "";       
         for(var i=0; i < rgb.length; i++)
         {
             var hex = parseInt(rgb[i]).toString(16);
@@ -31,11 +30,21 @@ $(document).ready(function(){
         return "#" + hexCode;
     }
     
-    var $colorSpan = $("#screen").find("span");
+    function pickColor()
+    {
+        console.log(sectionColors.length);
+        var idx = Math.floor(Math.random() * (sectionColors.length - 1)); 
+        var color = sectionColors[idx];
+        sectionColors.splice(idx, 1);
+        sectionColors.push(color);
+        
+        return color;
+    }
     
+    var $colorSpan = $("#screen").find("span");    
     setInterval(function(){
         
-        var col = sectionColors[Math.floor(Math.random() * sectionColors.length)];
+        var col = pickColor();
         var colHex = col["hex"];
         var colRgb = col["rgb"];       
         $colorSpan.css("background-color", "lightgray");
@@ -48,7 +57,7 @@ $(document).ready(function(){
                 
         var i = 0;       
         function myLoop(){           
-            setTimeout(function () {  
+            setTimeout(function () { 
                 $colorSpan.append(colHex[i]);
                 i++;
                 if (i < colHex.length)
@@ -71,14 +80,22 @@ $(document).ready(function(){
     });
 
     /* sets proper bars' position when scrolling + adds name in firsrtbar (can be used to dinamically name sections) */
-    var barsTop = $("#first-bar").css("top");        
+    var barsTop = $("#first-bar").css("top");
+    var headHeight = Math.round(parseInt($("#head-001").css("height")));
+    
     $(window).scroll(function() {
         var height = $(window).scrollTop();
 
         if(height > 20)
+        {
+            $("#head-001").css("top", - headHeight);
             $("#first-bar, #sidebar-wrapper").css("top", "0px");
+        }
         else
+        {
             $("#first-bar, #sidebar-wrapper").css("top", barsTop);
+            $("#head-001").css("top", "0px");
+        }
     });
 
     /* Set all the project by data-pulling */

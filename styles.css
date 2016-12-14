@@ -19,8 +19,14 @@ body {
 }    
 
 #name{
-    margin: 20px 0 4px 20px;
+    
+    position: fixed;
+    width: 100%;
+    z-index: 1600;
+    margin: 0;
+    padding: 10px;
     font-family: Ubuntu, monospace, Monaco, "Lucida Console";
+    background-color: white;
 }
 
 #head-001{

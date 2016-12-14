@@ -81,6 +81,7 @@ $(document).ready(function(){
 
     /* sets proper bars' position when scrolling + adds name in firsrtbar (can be used to dinamically name sections) */
     var barsTop = $("#first-bar").css("top");
+    var nameHeight = $("#name").css("height");
     var headHeight = Math.round(parseInt($("#head-001").css("height")));
     
     $(window).scroll(function() {
@@ -89,7 +90,7 @@ $(document).ready(function(){
         if(height > 20)
         {
             $("#head-001").css("top", - headHeight);
-            $("#first-bar, #sidebar-wrapper").css("top", "0px");
+            $("#first-bar, #sidebar-wrapper").css("top", nameHeight);
         }
         else
         {

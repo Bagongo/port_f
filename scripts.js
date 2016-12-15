@@ -81,11 +81,12 @@ $(document).ready(function(){
 
     /* sets proper bars' position when scrolling + adds name in firsrtbar (can be used to dinamically name sections) */
     var barsTop = $("#first-bar").css("top");
-    var nameHeight = $("#name").css("height");
-    var headHeight = Math.round(parseInt($("#head-001").css("height")));
     
     $(window).scroll(function() {
         var height = $(window).scrollTop();
+        
+        var nameHeight = $("#name").css("height");
+        var headHeight = Math.round(parseInt($("#head-001").css("height")));
 
         if(height > 20)
         {

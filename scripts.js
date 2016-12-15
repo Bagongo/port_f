@@ -1,4 +1,30 @@
 $(document).ready(function(){
+    
+    /* sets proper bars' position when scrolling + adds name in firstbar (can be used to dinamically name sections) */
+    
+    if( parseInt($(window).height()) >= (parseInt($("#name").height()) + parseInt($("#head-001").height())))
+        $("#wrapper").css("top", window.innerHeight - $("#first-bar").height());  
+    
+    var barsTop = $("#first-bar").css("top");
+    
+    $(window).scroll(function() {
+        var height = $(window).scrollTop();
+        
+        var nameHeight = $("#name").css("height");
+        var headHeight = Math.round(parseInt($("#head-001").css("height")));
+
+        if(height > 20)
+        {
+            $("#head-001").css("top", - headHeight);
+            $("#first-bar, #sidebar-wrapper").css("top", nameHeight);
+        }
+        else
+        {
+            $("#first-bar, #sidebar-wrapper").css("top", barsTop);
+            $("#head-001").css("top", "0px");
+        }
+    });
+
 
     /* collect color of each section */
     var sectionColors = [];
@@ -77,27 +103,6 @@ $(document).ready(function(){
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper, #first-bar").toggleClass("toggled");
-    });
-
-    /* sets proper bars' position when scrolling + adds name in firsrtbar (can be used to dinamically name sections) */
-    var barsTop = $("#first-bar").css("top");
-    
-    $(window).scroll(function() {
-        var height = $(window).scrollTop();
-        
-        var nameHeight = $("#name").css("height");
-        var headHeight = Math.round(parseInt($("#head-001").css("height")));
-
-        if(height > 20)
-        {
-            $("#head-001").css("top", - headHeight);
-            $("#first-bar, #sidebar-wrapper").css("top", nameHeight);
-        }
-        else
-        {
-            $("#first-bar, #sidebar-wrapper").css("top", barsTop);
-            $("#head-001").css("top", "0px");
-        }
     });
 
     /* Set all the project by data-pulling */

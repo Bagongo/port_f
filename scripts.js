@@ -26,10 +26,16 @@ $(document).ready(function(){
     });
 
 
-    /* collect color of each section */
-    var sectionColors = [];
+    // collection of colors for screen animation (comment/uncomment code below to use section colors)
+    var sectionColors = [{hex:"#FD971F", rgb:"rgb(253,151,31)"},
+                         {hex:"#A6E22E", rgb:"rgb(166,226,46)"}, 
+                         {hex:"#66D9EF", rgb:"rgb(102,217,239)"}, 
+                         {hex:"#F92672", rgb:"rgb(249,38,114)"}];
     
-    /* push rgb and hex property objects to sectionColorArray */
+    /*     
+    var sectionColors = [];
+    // push rgb and hex property objects to sectionColorArray
+   
     $(".section-title-stripe").each(function(){
         
         var rgbCode = $(this).css("background-color");
@@ -43,7 +49,8 @@ $(document).ready(function(){
         sectionColors.push(color);
     });
     
-    /* converts every r, g, b in rgb strings array to hex string  */
+    
+    // converts every r, g, b in rgb strings array to hex string
     function rgbToHex(rgb) 
     {
         var hexCode = "";       
@@ -55,6 +62,7 @@ $(document).ready(function(){
         }        
         return "#" + hexCode;
     }
+    */
     
     function pickColor()
     {
@@ -67,7 +75,7 @@ $(document).ready(function(){
         return color;
     }
     
-    var $colorSpan = $("#screen").find("span");    
+    var $colorSpan = $("#screen").find("#color-code");    
     setInterval(function(){
         
         var col = pickColor();
@@ -83,7 +91,11 @@ $(document).ready(function(){
                 
         var i = 0;       
         function myLoop(){           
-            setTimeout(function () { 
+            setTimeout(function () {
+                var randomKIdx = Math.floor(Math.random() * ($(".key").length));
+                var $key = $(".key:eq("+ randomKIdx +")");
+                $key.css("border-top", "1px solid lightgray");
+                setTimeout(function(){$key.css("border-top", "1px solid black");}, 150);
                 $colorSpan.append(colHex[i]);
                 i++;
                 if (i < colHex.length)

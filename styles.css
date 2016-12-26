@@ -19,7 +19,6 @@ body{
 }    
 
 #name{
-    
     position: fixed;
     width: 100%;
     z-index: 1600;
@@ -143,16 +142,16 @@ body{
     animation: slide-right 2s ease;
     animation-fill-mode: forwards;
 }
-    
+
+@keyframes slide-right{
+    from{width: 0%;}
+    to{width: 100%;} 
+}
+
 #first-bar > * {
     display: inline-block;
 }
-        
-@keyframes slide-right{
-    from{width: 0%;}
-    to{width: 100%} ; 
-}
-   
+         
 #first-bar > a{
     height: 100%;
     text-decoration: none;
@@ -197,7 +196,6 @@ body{
 } 
     
 .section-icon{
-    /*padding: 8px 20px 0 0; if border around title and display-table */
     padding: 5px 10px 0 0;
 }
 
@@ -233,7 +231,7 @@ body{
 }
 
 #contacts .btn:active{
-    background-color: rgba(253, 151, 31, .8);
+    background-color: rgba(253, 151, 31, 0.8);
 }
 
 .social-ext-container{
@@ -250,7 +248,7 @@ body{
     width: 20%;
     height: 50px;
     border-radius: 10px;
-    background-color: rgba(253, 151, 31, .9);
+    background-color: rgba(253, 151, 31, 0.9);
     padding-top: 4px;
     
     -webkit-transition: all .4s ease;
@@ -358,27 +356,19 @@ body{
     position: fixed;
     left: 200px;
     width: 150px;
-    height: 0%;
+    height: 100%;
     margin-left: -200px;
     overflow-y: hidden;
     background-color: #b9b9b9;
     box-shadow: 20px 16px 15px #414141;
     font-family: Ubuntu;
     
-    animation: slide-down 2s 0.5s ease;
-    animation-fill-mode: forwards;
-   
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
-@keyframes slide-down{
-    from{height: 0%;}
-    to{height: 100%}; 
-}    
-    
+   
 #wrapper.toggled #sidebar-wrapper {
     width: 0px;
 }

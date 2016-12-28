@@ -39,7 +39,7 @@ body{
 
 #top-anim{
     text-align: center;
-    margin: 175px 0 0 0;
+    margin: 15% 0 0 0;
 }
 
 #top-anim > h2{
@@ -124,10 +124,10 @@ body{
 }
 
 #first-bar{
+    z-index: 1001;
     width: 0;
     height: 35px;
     position: fixed;
-    z-index: 1001;
     overflow: hidden;
     background-color: aquamarine;
     border-radius: 0px;
@@ -200,19 +200,19 @@ body{
 }
 
 #about .section-title-stripe, #about .section-title{
-    background-color: #b1da5e;
+    background-color: #ffea5e;
 }    
     
 #web-apps .section-title-stripe, #web-apps .section-title, #web-apps .proj-container{
-    background-color: #66D9EF;
+    background-color: #89e4f5;
 } 
     
 #games .section-title-stripe, #games .section-title, #games .proj-container{
-    background-color: #F92672;
+    background-color: #f25d7f  ;
 } 
     
 #contacts .section-title-stripe, #contacts .section-title, #msg-container{
-    background-color: #FD971F;
+    background-color: #fcac4f;
 }  
     
 #msg-container {
@@ -264,9 +264,12 @@ body{
     background-color: rgba(253, 151, 31, 1);
     padding-top: 7px;
 }
-   
+
 .proj-container{
+    display: inline-block;
+    float: none;
     max-width: 350px;
+    min-width: 100px;
     top: 0px;
     left: 0px;
     padding: 0 12px 12px 12px;
@@ -339,6 +342,7 @@ body{
 
 #wrapper {
     position: absolute;
+    margin-top: 0;
     padding-left: 0;
     
     -webkit-transition: all 0.5s ease;
@@ -353,10 +357,10 @@ body{
 
 #sidebar-wrapper {
     z-index: 1000;
-    position: fixed;
-    left: 200px;
     width: 150px;
     height: 100%;
+    position: fixed;
+    left: 200px;
     margin-left: -200px;
     overflow-y: hidden;
     background-color: #b9b9b9;
@@ -385,7 +389,7 @@ body{
 }
     
 #first-bar.toggled{
-    padding-right: 0;  
+    padding-right: 0;    
 }    
 
 /* Sidebar Styles */
@@ -466,6 +470,10 @@ body{
     
 @media(max-width:768px) {
     
+    #top-anim{
+        margin: 25% 0 0 0;
+    }
+    
     #first-bar{
         height: 30px;
         width: 100%;
@@ -475,7 +483,7 @@ body{
     
     #bar-name{
         margin-left: 10px;
-        font-size: .9em;
+        font-size: .85em;
     }
     
     .btn-default {

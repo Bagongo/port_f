@@ -7,6 +7,7 @@ $(document).ready(function(){
     
     var barsTop = $("#first-bar").css("top");
     
+    
     $(window).scroll(function() {
         var height = $(window).scrollTop();
         
@@ -20,22 +21,21 @@ $(document).ready(function(){
         }
         else
         {
-            $("#first-bar, #sidebar-wrapper").css("top", barsTop);
             $("#head-001").css("top", "0px");
+            $("#first-bar, #sidebar-wrapper").css("top", barsTop);
         }
     });
 
-
     // collection of colors for screen animation (comment/uncomment code below to use section colors)
-    var sectionColors = [{hex:"#FD971F", rgb:"rgb(253,151,31)"},
+    /* var sectionColors = [{hex:"#FD971F", rgb:"rgb(253,151,31)"},
                          {hex:"#A6E22E", rgb:"rgb(166,226,46)"}, 
                          {hex:"#66D9EF", rgb:"rgb(102,217,239)"}, 
                          {hex:"#F92672", rgb:"rgb(249,38,114)"}];
-    
-    /*     
+                         */
+        
     var sectionColors = [];
     // push rgb and hex property objects to sectionColorArray
-   
+    
     $(".section-title-stripe").each(function(){
         
         var rgbCode = $(this).css("background-color");
@@ -48,8 +48,7 @@ $(document).ready(function(){
             
         sectionColors.push(color);
     });
-    
-    
+        
     // converts every r, g, b in rgb strings array to hex string
     function rgbToHex(rgb) 
     {
@@ -62,11 +61,9 @@ $(document).ready(function(){
         }        
         return "#" + hexCode;
     }
-    */
     
     function pickColor()
     {
-        console.log(sectionColors.length);
         var idx = Math.floor(Math.random() * (sectionColors.length - 1)); 
         var color = sectionColors[idx];
         sectionColors.splice(idx, 1);
@@ -150,14 +147,14 @@ $(document).ready(function(){
     ];
 
     function loadProjectsData(section, template, projects)
-    {        
+    {    
         for(var i=1; i < projects.length; i++)
         {
             var newProj = document.getElementById(template).cloneNode(true);            
-            document.getElementById(section).appendChild(newProj);
+            document.getElementById(section).children[1].appendChild(newProj);
         }
 
-        $("#" + section).children(".proj-container").each(function(i){            
+        $("#" + section + " > .proj-ext-container").children(".proj-container").each(function(i){            
             var projData = projects[i];
 
             $(this).find(".proj-title").prepend(projData["name"]);

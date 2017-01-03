@@ -3,20 +3,24 @@ $(document).ready(function(){
     /* sets proper bars' position when scrolling + adds name in firstbar (can be used to dinamically name sections) */
     
     if( parseInt($(window).height()) >= (parseInt($("#name").height()) + parseInt($("#head-001").height())))
-        $("#wrapper").css("top", window.innerHeight - $("#first-bar").height());  
-    
+        $("#wrapper").css("top", window.innerHeight - $("#first-bar").height());
+       
     var barsTop = $("#first-bar").css("top");
     
-    
+    $(window).resize(function(){
+        barsTop = "calc(100vh - " + $("#first-bar").css("height") + ")";
+        $("#first-bar, #sidebar-wrapper").css("top", barsTop);
+    });
+       
     $(window).scroll(function() {
         var height = $(window).scrollTop();
         
         var nameHeight = $("#name").css("height");
         var headHeight = Math.round(parseInt($("#head-001").css("height")));
 
-        if(height > 20)
+        if(height > 50)
         {
-            $("#head-001").css("top", - headHeight);
+            $("#head-001").css("top", "-1000px");
             $("#first-bar, #sidebar-wrapper").css("top", nameHeight);
         }
         else
@@ -102,6 +106,7 @@ $(document).ready(function(){
                     setTimeout(function(){
                         $colorSpan.append(";");
                         $("#top-anim h2").css("color", colRgb);
+                        popText();
                     }, 500);                   
                 }
             }, 200)
@@ -111,8 +116,28 @@ $(document).ready(function(){
     /* toggle button behavior when pressed.... */
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
-        $("#wrapper, #first-bar").toggleClass("toggled");
+        $("#wrapper, #first-bar, #first-bar > a").toggleClass("toggled");
     });
+    
+    /* spawn background texts */
+    var bgTexts = ["design", "games", "web-apps", "development"];
+    
+    function popText()
+    {
+        var text = bgTexts[Math.floor(Math.random() * (bgTexts.length))];
+        var pos1 = Math.random() * (30 - 10) + 10;
+        var pos2 = Math.random() * (80 - 60) + 60;
+        var posX = Math.random() < 0.5 ? pos1 : pos2;
+        
+        var newText = $("#proto-bg-txt").clone();
+        newText.html(text + "<br /><i class='fa fa-angle-double-down'></i>");
+        newText.appendTo("#head-001");
+        newText.addClass("bg-text");
+        newText.css({"color":"aquamarine", left:posX+"%"});
+        newText.animate({opacity:"1", fontSize:"22px"}, 1000).animate({opacity:"0", top:"150%"}, 2000,function(){
+            $(this).remove();
+        });
+    }
 
     /* Set all the project by data-pulling */
     var webapps = [

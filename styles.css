@@ -30,6 +30,7 @@ body{
 
 #head-001{
     position: relative;
+    margin: 20vh 0 0 0;
     
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -38,13 +39,13 @@ body{
 }
 
 #top-anim{
+    position: relative;
     text-align: center;
-    margin: 15% 0 0 0;
 }
 
 #top-anim > h2{
     font-size: 3em;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     color: aquamarine;
 }
 
@@ -85,6 +86,7 @@ body{
     border-radius: 5px;
     border-bottom: 2px solid darkgray;
     background-color: lightgray;
+    box-shadow: 0px 2px 2px #383636;
 }
 
 #keyboard .key, #keyboard #space-bar
@@ -116,23 +118,36 @@ body{
     /*border: 1px solid darkgray; use with #c9c9c9 bg */ 
     background-color: #bcbcbc;
 }
-    
+
+.bg-text{
+    position: absolute;
+    top: 10%;
+    z-index: -1;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    opacity: 0;
+    font-size: 20px;
+}
+  
 #bar-name{
+    position: absolute;
     display: none;
     font-weight: bold;
     margin: 8px 10px 0 20px;
 }
 
 #first-bar{
-    z-index: 1001;
+    z-index: 999;
     width: 0;
     height: 35px;
     position: fixed;
+    top: calc(100vh - 35px);
     overflow: hidden;
     background-color: aquamarine;
     border-radius: 0px;
-    padding-right: 150px;
-    box-shadow: 15px 10px 15px #272727;
+    padding-right: calc(150px + 120%);
+    box-shadow: -30px 20px 20px #2e2d2d;
     
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -145,7 +160,7 @@ body{
 
 @keyframes slide-right{
     from{width: 0%;}
-    to{width: 100%;} 
+    to{width: 120%;} 
 }
 
 #first-bar > * {
@@ -158,7 +173,20 @@ body{
     margin: 0;
     border: none;
     border-radius: 0;
-} 
+}
+
+#first-bar > a:not(:first-child){
+    opacity: 0;
+    
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; 
+}
+
+#first-bar > a:not(:first-child).toggled{
+    opacity: 1;
+}
     
 #menu-toggle{
     color: white;
@@ -342,7 +370,6 @@ body{
 
 #wrapper {
     position: absolute;
-    margin-top: 0;
     padding-left: 0;
     
     -webkit-transition: all 0.5s ease;
@@ -360,11 +387,12 @@ body{
     width: 150px;
     height: 100%;
     position: fixed;
+    top: calc(100vh - 35px);
     left: 200px;
     margin-left: -200px;
     overflow-y: hidden;
     background-color: #b9b9b9;
-    box-shadow: 20px 16px 15px #414141;
+    box-shadow: 20px 45px 15px #414141;
     font-family: Ubuntu;
     
     -webkit-transition: all 0.5s ease;
@@ -389,7 +417,7 @@ body{
 }
     
 #first-bar.toggled{
-    padding-right: 0;    
+    padding-right: 20%;    
 }    
 
 /* Sidebar Styles */
@@ -470,13 +498,14 @@ body{
     
 @media(max-width:768px) {
     
-    #top-anim{
-        margin: 25% 0 0 0;
+    #head-001{
+        margin: 20vh 0 0 0;
     }
     
     #first-bar{
         height: 30px;
         width: 100%;
+        top: calc(100vh - 30px);
         overflow: scroll;
         padding: 0px;
     }
@@ -499,7 +528,8 @@ body{
     }
 
     #sidebar-wrapper {
-        width: 0;
+        width: 0;        
+        top: calc(100vh - 30px);
     }
 
     #wrapper.toggled #sidebar-wrapper {

@@ -1,0 +1,158 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+.all-trans{
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+#flex-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#name{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    font-family: Ubuntu, monospace, Monaco, "Lucida Console";
+    background-color: red;
+}
+
+#name > h1{
+    margin: 0;
+    padding: 0 15px;
+}
+
+#top-anim{
+    position: relative;
+    top: 100px;
+    background-color: yellow;
+}
+
+#top-anim > h2{
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: aquamarine;
+}
+
+#laptop{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#screen{
+    width: 160px;
+    height: 100px;
+    text-align: left;
+    overflow: hidden;
+    padding: 20px 0 0 10px;
+    border: 3px solid #535353;
+    border-radius: 5px;
+    background-color: black;
+    color: forestgreen;
+}
+
+#screen{
+    color: white;
+}
+
+#screen > #selector{
+    color: #A6E22E;
+}
+
+#screen > #prop{
+    color: #66D9EF;
+}
+
+#screen > #color-code{
+    color: #F92672;
+}
+
+#keyboard{
+    width: 160px;
+    height: 85px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    border-bottom: 2px solid darkgray;
+    background-color: lightgray;
+    box-shadow: 0px 2px 2px #383636;
+}
+
+#keyboard > div{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#keyboard .key, #keyboard #space-bar{
+    height: 7px;
+    margin: 1px;
+    border-radius: 2px;
+    background-color: black;     
+}
+
+.key{
+    position: relative;
+    width: 8px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid white;
+}
+
+.key.pressed{
+    border-top: 1px solid #8C8E8E; /*change color for different key-pressed effects*/
+}
+
+#space-bar{
+    width: 38px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid white;
+}
+
+#track-pad{
+    position: relative;
+    margin: 5px 0 0 0;
+    width: 40px;
+    height: 25px;
+    border-radius: 2px;
+    background-color: #bcbcbc;
+}
+
+#nav-bar{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    display: flex;
+    flex-flow: column; 
+    background-color: black;  
+}
+
+#wrapper{
+    position: absolute;
+    top:105%;
+}
+
+.dummies{
+    width: 250px;
+    height: 150px;
+    background-color: blue;
+}

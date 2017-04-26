@@ -95,8 +95,8 @@ $(document).ready(function(){
             setTimeout(function () {
                 var randomKIdx = Math.floor(Math.random() * ($(".key").length));
                 var $key = $(".key:eq("+ randomKIdx +")");
-                $key.css("border-top", "1px solid lightgray");
-                setTimeout(function(){$key.css("border-top", "1px solid black");}, 150);
+                $key.addClass("pressed");
+                setTimeout(() => {$key.removeClass(pressed);}, 150);
                 $colorSpan.append(colHex[i]);
                 i++;
                 if (i < colHex.length)
@@ -134,9 +134,10 @@ $(document).ready(function(){
         newText.appendTo("#head-001");
         newText.addClass("bg-text");
         newText.css({"color":"aquamarine", left:posX+"%"});
-        newText.animate({opacity:"1", fontSize:"22px"}, 1000).animate({opacity:"0", top:"150%"}, 2000,function(){
+        newText.animate({opacity:"1"},{queue:false, duration: 500});
+        newText.animate({top:"200%"},{queue: false, duration: 3000, complete: function(){
             $(this).remove();
-        });
+        }});
     }
 
     /* Set all the project by data-pulling */

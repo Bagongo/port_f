@@ -94,25 +94,23 @@ $(document).ready(function(){
 
 //SCROLLING AND FIXED BARS SYSTEM
 
-    var navbarInitTop = $(window).innerHeight() - parseInt($("#nav-bar").height());
-    var animInitTop = $("#top-anim").css("top");
-    var barsHeight = parseInt($("#nav-bar").height()) + parseInt($("#top-anim").height());
+    // var navbarInitTop = $(window).innerHeight() - parseInt($("#nav-bar").height());
+    // var animInitTop = $("#top-anim").css("top");
+    // var barsHeight = parseInt($("#nav-bar").height()) + parseInt($("#top-anim").height());
 
     $(window).scroll(function(){
+        var top = $("#nav-bar").height() - $("#top").height() + $("#name").height();
         var height = $(window).scrollTop();      
-        var topLimit = $("#name").css("height");
 
         if(height > 50)
         {
-            $("#nav-bar").css("top", topLimit);
-            $("#top-anim").css("top", "-200px"); 
-            $("wrapper").css("top", barsHeight + "px");
+            $("#top").css("top", top + "px");
+            $("#top").css("position", "fixed");
         }
         else
         {
-            $("#nav-bar").css("top", navbarInitTop);
-            $("#top-anim").css("top", animInitTop);
-            $("wrapper").css("top", "105%"); 
+            $("#top").css("top", "0");
+            $("#top").css("position", "absolute");
         }
     });
 

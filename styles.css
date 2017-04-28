@@ -43,13 +43,14 @@ body, html{
 
 }
 
+#name{
+    border-bottom: 5px outset #76F3CE;
+    box-shadow: 0 1px 5px gray;
+}
+
 #name > h1{
     margin: 0 0 0 8px;
 } 
-
-#name .link{
-    font-size: 1em;
-}
 
 .link{
     position: relative;
@@ -59,6 +60,11 @@ body, html{
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+    text-decoration: none;
+    color: inherit;
+
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .link > *{
@@ -66,7 +72,15 @@ body, html{
 }
 
 .link:hover{
+    color: white;
     background-color: #A8ABAD;
+}
+
+.link:visited, .link:link{
+}
+
+#name .link{
+    font-size: 1em;
 }
 
 #top{
@@ -185,13 +199,15 @@ body, html{
 
 #nav-bar{
     position: relative;
-    height: 75px;
+    height: 50px;
     justify-content: space-around;
-    background-color: lightgray;  
+    background-color: lightgray;
+    box-shadow: 0 8px 10px #565757;  
 }
 
 #nav-bar .link{
     font-size: 1.5em;
+    flex-grow: 1;
 }
 
 #wrapper{

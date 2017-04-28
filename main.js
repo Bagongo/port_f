@@ -75,7 +75,7 @@ $(document).ready(function(){
             if(letter === ";") //the color value has been printed out
             {
                 $("#top-anim h2").css("color", color);
-                setTimeout(eraseLastInput, 1000);                   
+                setTimeout(eraseLastInput, 1000); 
             }
 
         }, delay);

@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+//GLOBAL VARS & LISTENERS
+    $(".project-info-btn").hover(function(){
+        $(this).closest(".proj-ext-container").find("iframe, .proj-info-panel").toggleClass("toggled");
+    });    
+
 //TOP ANIMATION INNER FUNCTIONING    
 
     var $colorCode = $("#color-code"); //the changing value in the laptop screen   
@@ -112,6 +117,6 @@ $(document).ready(function(){
             $("#top").css("top", "0");
             $("#top").css("position", "absolute");
         }
-    });
+    }); 
 
 });

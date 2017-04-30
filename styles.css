@@ -2,7 +2,7 @@ body, html{
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: Ubuntu;
+    font-family: Ubuntu, monospace, Monaco;
 }
 
 .all-trans{
@@ -344,15 +344,15 @@ body, html{
     background-color: #ffea5e;
 }    
     
-#web-apps .section-title-stripe, #web-apps .section-title, #web-apps .proj-container{
+#web-apps .section-title-stripe, #web-apps .proj-container{
     background-color: #89e4f5;
 } 
     
-#games .section-title-stripe, #games .section-title, #games .proj-container{
+#games .section-title-stripe, #games .proj-container{
     background-color: #f25d7f  ;
 } 
     
-#contacts .section-title-stripe, #contacts .section-title, #msg-container{
+#contacts .section-title-stripe, #msg-container{
     background-color: #fcac4f;
 } 
 
@@ -360,20 +360,10 @@ body, html{
     display: none;
 } 
 
-.dummies{
-    width: 500px;
-    height: 500px;
-    border: 10px solid white;
-    background-color: blue;
-}
-
-.dummies:nth-child(1){
-    background-color: green;
-}
-
 @media screen and (max-width: 768px) {
     #name {justify-content: center;}
     #name > h1{font-size: 1.5em;}
     #name .link{display: none;}
     #nav-bar .link p{display: none;}
+    /*.section-title-stripe{width: 100%; border-radius: 0;}*/
 }

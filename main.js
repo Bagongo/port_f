@@ -136,12 +136,14 @@ $(document).ready(function(){
             tucked = true;
             $("#top").css({"top": top + "px", "position": "fixed"});
             $("#nav-bar").toggleClass("tucked");
+            $("#nav-bar > a > div:first").removeClass("hovered");
         }
         else if (height <= 50 && tucked)
         {
             tucked = false;
             $("#top").css({"top": "0", "position": "absolute"});
             $("#nav-bar").toggleClass("tucked");
+            $("#nav-bar > a:first > div:first").addClass("hovered");
         }
     });
 
@@ -172,21 +174,20 @@ $(document).ready(function(){
 
     $(".section").waypoint(function(scrolling){
         if(scrolling == "down")
-            navBarReacts($(this.element).attr("id"));
-             
+            navBarReacts($(this.element).attr("id"));             
     });
 
     $(".section-title-stripe").waypoint(function(scrolling){
-
         if(scrolling == "up")
         {
-            var thisSectionId = $(this.element).closest(".section").attr("id");
+            var prevSection = $(this.element).closest(".section").prev(".section").attr("id");
             
-            if(thisSectionId === firstSectionId)
-                resetNavbar();
+            if(prevSection !== undefined)
+                navBarReacts(prevSection);
             else
-                navBarReacts(thisSectionId.attr("id"));            
+                resetNavbar();
         }   
-    }, {offset : "15%"}); 
+
+    }, {offset : "20%"}); 
 
 });

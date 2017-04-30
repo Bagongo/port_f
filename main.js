@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 //GLOBAL VARS & LISTENERS
     $(".project-info-btn").hover(function(){
-        $(this).closest(".proj-ext-container").find("iframe, .proj-info-panel").toggleClass("toggled");
+        $(this).closest(".proj-container").find("iframe, .proj-info-panel").toggleClass("toggled");
     });    
 
 //TOP ANIMATION INNER FUNCTIONING    
@@ -102,20 +102,23 @@ $(document).ready(function(){
     // var navbarInitTop = $(window).innerHeight() - parseInt($("#nav-bar").height());
     // var animInitTop = $("#top-anim").css("top");
     // var barsHeight = parseInt($("#nav-bar").height()) + parseInt($("#top-anim").height());
+    var tucked = false;
 
     $(window).scroll(function(){
         var top = $("#nav-bar").height() - $("#top").height() + $("#name").height();
         var height = $(window).scrollTop();      
 
-        if(height > 50)
+        if(height > 50 && !tucked)
         {
-            $("#top").css("top", top + "px");
-            $("#top").css("position", "fixed");
+            tucked = true;
+            $("#top").css({"top": top + "px", "position": "fixed"});
+            $("#nav-bar").toggleClass("tucked");
         }
-        else
+        else if (height <= 50 && tucked)
         {
-            $("#top").css("top", "0");
-            $("#top").css("position", "absolute");
+            tucked = false;
+            $("#top").css({"top": "0", "position": "absolute"});
+            $("#nav-bar").toggleClass("tucked");
         }
     }); 
 

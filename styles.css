@@ -42,16 +42,6 @@ body, html{
 
 }
 
-#name{
-    border-bottom: 5px outset #76F3CE;
-    box-shadow: 0 1px 5px gray;
-    background-color: aquamarine;
-}
-
-#name > h1{
-    margin: 0 0 0 8px;
-} 
-
 .link{
     position: relative;
     height: 100%;
@@ -79,6 +69,17 @@ body, html{
 .link:visited, .link:link{
 }
 
+
+#name{
+    border-bottom: 5px outset #76F3CE;
+    box-shadow: 0 1px 5px gray;
+    background-color: aquamarine;
+}
+
+#name > h1{
+    margin: 0 0 0 8px;
+} 
+
 #top{
     position: absolute;
     z-index: 1;
@@ -87,8 +88,6 @@ body, html{
     min-height: 500px;
     display: flex;
     flex-flow: column nowrap;
-    background-color: white;
-    opacity: .5;
 }
 
 #top-anim{
@@ -97,6 +96,7 @@ body, html{
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
 #top-anim > h2{
@@ -201,6 +201,11 @@ body, html{
     height: 50px;
     justify-content: space-around;
     background-color: lightgray;
+}
+
+#nav-bar.tucked{
+    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.8);
     box-shadow: 0 8px 10px #565757;  
 }
 
@@ -230,26 +235,28 @@ body, html{
 }
 
 .section-title-stripe{
-    width: 100%;
-    height: 50px;
+    width: 95%;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
     border-radius: 5px;
-    margin: 25px;
-    color: white;
+    margin: 50px;
+    padding: 0 15px;
+    color: black;
     background-color: black;
-}
-    
-.section-title{
-    margin: 0 0 0 -10px;
-    padding: 5px 10px 5px 10px;
-    /*border: 4px solid lightgray; */
-    border-radius: 5px;
 }
 
 .proj-ext-container{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.proj-container{
     position: relative;
     overflow: hidden;
     width: 300px;
@@ -261,7 +268,8 @@ body, html{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    border: 5px solid black;
+    border: 4px solid lightgray;
+    margin: 25px 10px;
     background-color: green;
     box-shadow: -8px 8px 10px #888888; 
 
@@ -269,7 +277,7 @@ body, html{
     transition: all .5s ease;   
 }
 
-.proj-ext-container:hover{
+.proj-container:hover{
     top: -10px;
     left: 5px;
     box-shadow: -20px 15px 15px #888888;
@@ -286,14 +294,14 @@ body, html{
 .project-info-btn{
     position: absolute;
     left: 92%;
-    top: 2%;
+    top: 3%;
 }
 
 .project-info-btn:hover{
-    color: darkgray;
+    color: white;
 }
 
-.proj-ext-container > iframe{
+.proj-container > iframe{
     height: 80%;
     width: 100%;
 
@@ -301,7 +309,7 @@ body, html{
     transition: all .5s ease;
 }
 
-.proj-ext-container iframe.toggled{
+.proj-container iframe.toggled{
     -webkit-filter: blur(4px);    
     filter: blur(4px);    
 } 
@@ -322,6 +330,22 @@ body, html{
 .proj-info-panel.toggled{
     top: 20%;
 }
+
+#about .section-title-stripe, #about .section-title{
+    background-color: #ffea5e;
+}    
+    
+#web-apps .section-title-stripe, #web-apps .section-title, #web-apps .proj-container{
+    background-color: #89e4f5;
+} 
+    
+#games .section-title-stripe, #games .section-title, #games .proj-container{
+    background-color: #f25d7f  ;
+} 
+    
+#contacts .section-title-stripe, #contacts .section-title, #msg-container{
+    background-color: #fcac4f;
+}  
 
 .dummies{
     width: 500px;

@@ -99,14 +99,11 @@ $(document).ready(function(){
 
 //SCROLLING AND FIXED BARS SYSTEM
 
-    // var navbarInitTop = $(window).innerHeight() - parseInt($("#nav-bar").height());
-    // var animInitTop = $("#top-anim").css("top");
-    // var barsHeight = parseInt($("#nav-bar").height()) + parseInt($("#top-anim").height());
     var tucked = false;
 
     $(window).scroll(function(){
-        var top = $("#nav-bar").height() - $("#top").height() + $("#name").height();
-        var height = $(window).scrollTop();      
+        var top = parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
+        var height = $(window).scrollTop(); 
 
         if(height > 50 && !tucked)
         {
@@ -120,6 +117,36 @@ $(document).ready(function(){
             $("#top").css({"top": "0", "position": "absolute"});
             $("#nav-bar").toggleClass("tucked");
         }
-    }); 
+    });
+
+    /* waypoints functionality */
+
+    var firstSectionId = $(".section:first").attr("id");
+    var navBarOriginCol = $("#nav-bar").css("background-color");
+
+    function navBarReacts(sectionId)
+    {
+        var color = $("#" + sectionId).find(".section-title-stripe").css("background-color");
+        $("#nav-bar").css("background-color", color);
+    }
+
+    $(".section").waypoint(function(scrolling){
+        if(scrolling == "down")
+            navBarReacts($(this.element).attr("id"));
+             
+    });
+
+    $(".section-title-stripe").waypoint(function(scrolling){
+
+        if(scrolling == "up")
+        {
+            var thisSectionId = $(this.element).closest(".section").attr("id");
+            
+            if(thisSectionId === firstSectionId)
+                $("#nav-bar").css("background-color", navBarOriginCol);
+            else
+                navBarReacts(thisSectionId.attr("id"));            
+        }   
+    }, {offset : "15%"}); 
 
 });

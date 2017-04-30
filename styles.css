@@ -35,7 +35,6 @@ body, html{
 .bar > *{
     height: 100%;
     display: flex;
-    flex-flow: row;
     justify-content: center;
     align-items: center;
     /*text-shadow: 0px 1px 1px gray; */
@@ -46,24 +45,32 @@ body, html{
     position: relative;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    flex-grow: 1;
+}
+
+.link > div{
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     padding: 0 10px;
-    text-decoration: none;
-    color: inherit;
-
-    -webkit-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
+    background-color: rgba(0, 0, 0, 0);
 }
 
-.link > *{
+.link > div > *{
     margin: 0 2px;
 }
 
-.link:hover{
+.link > div:hover{
     color: white;
     background-color: #A8ABAD;
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .link:visited, .link:link{
@@ -73,6 +80,7 @@ body, html{
 #name{
     border-bottom: 5px outset #76F3CE;
     box-shadow: 0 1px 5px gray;
+    color: black;
     background-color: aquamarine;
 }
 
@@ -204,14 +212,12 @@ body, html{
 }
 
 #nav-bar.tucked{
-    background-color: lightgray;
-    background-color: rgba(211, 211, 211, 0.8);
     box-shadow: 0 8px 10px #565757;  
+    opacity: .9;
 }
 
 #nav-bar .link{
     font-size: 1.2em;
-    flex-grow: 1;
 }
 
 #sections-wrapper{
@@ -362,5 +368,5 @@ body, html{
     #name {justify-content: center;}
     #name > h1{font-size: 1.5em;}
     #name .link{display: none;}
-    #nav-bar .link > p{display: none;}
+    #nav-bar .link p{display: none;}
 }

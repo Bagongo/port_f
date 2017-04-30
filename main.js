@@ -128,6 +128,20 @@ $(document).ready(function(){
     {
         var color = $("#" + sectionId).find(".section-title-stripe").css("background-color");
         $("#nav-bar").css("background-color", color);
+        $("#nav-bar a").each(function(){
+            if($(this).attr("data-section") === sectionId)
+                $(this).find("div:first").addClass("hovered");
+            else
+                $(this).find("div:first").removeClass("hovered");
+        });
+    }
+
+    function resetNavbar()
+    {
+        $("#nav-bar").css("background-color", navBarOriginCol);
+        $("#nav-bar a").each(function(){
+            $(this).find("div:first").removeClass("hovered");
+        });
     }
 
     $(".section").waypoint(function(scrolling){
@@ -143,7 +157,7 @@ $(document).ready(function(){
             var thisSectionId = $(this.element).closest(".section").attr("id");
             
             if(thisSectionId === firstSectionId)
-                $("#nav-bar").css("background-color", navBarOriginCol);
+                resetNavbar();
             else
                 navBarReacts(thisSectionId.attr("id"));            
         }   

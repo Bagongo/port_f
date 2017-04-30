@@ -67,7 +67,7 @@ body, html{
     margin: 0 2px;
 }
 
-.link > div:hover{
+.link:hover > div, .link > div.hovered{
     color: white;
     background-color: #A8ABAD;
     background-color: rgba(0, 0, 0, .2);
@@ -209,6 +209,9 @@ body, html{
     height: 50px;
     justify-content: space-around;
     background-color: lightgray;
+
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #nav-bar.tucked{

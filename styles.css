@@ -354,7 +354,11 @@ body, html{
     
 #contacts .section-title-stripe, #contacts .section-title, #msg-container{
     background-color: #fcac4f;
-}  
+} 
+
+#proto-proj{
+    display: none;
+} 
 
 .dummies{
     width: 500px;

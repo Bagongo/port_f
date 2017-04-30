@@ -1,5 +1,31 @@
 $(document).ready(function(){
 
+//PROJECTS MANAGEMENT
+    
+    var projects = [{
+            link: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
+            section:"web-apps",
+            name:"Quote Machine",
+            description: "A simple game where you have to match a quote to it's author",
+            code: "html, css, js",
+            frameworks: "none"
+        }
+    ];
+
+    for(var i=0; i < 5; i++)
+    {
+        var project = projects[0];
+        var $target = $("#" + project.section + " .proj-ext-container");
+        var projEl = $("#proto-proj").clone();
+        projEl.find(".proj-title").text(project.name);
+        projEl.find("iframe").attr("src", project.link);
+        projEl.find(".proj-description").text(project.description);
+        projEl.find(".proj-code span").text(project.code);
+        projEl.find(".proj-frameworks span").text(project.frameworks);
+        projEl.css("display", "flex");
+        projEl.appendTo($target);
+    } 
+
 //GLOBAL VARS & LISTENERS
     $(".project-info-btn").hover(function(){
         $(this).closest(".proj-container").find("iframe, .proj-info-panel").toggleClass("toggled");

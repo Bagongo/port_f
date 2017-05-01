@@ -253,6 +253,7 @@ body, html{
     border-radius: 5px;
     margin: 50px;
     padding: 0 15px;
+    font-size: 1.5em;
     color: black;
     background-color: black;
 }
@@ -268,8 +269,8 @@ body, html{
 .proj-container{
     position: relative;
     overflow: hidden;
-    width: 300px;
-    height: 250px;
+    width: 420px;
+    height: 350px;
     top: 0;
     left: 0;
     display: flex;
@@ -277,7 +278,6 @@ body, html{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    border: 4px solid lightgray;
     margin: 25px 10px;
     background-color: green;
     box-shadow: -8px 8px 10px #888888; 
@@ -313,6 +313,7 @@ body, html{
 .proj-container > iframe{
     height: 80%;
     width: 100%;
+    border: none;
 
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
@@ -328,16 +329,29 @@ body, html{
     width: 100%;
     height: 80%;
     top: 110%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    background-color: rgba(211, 211, 211, 0.2);
-    opacity: 0.2;
+    background-color: rgba(211, 211, 211, 0.8);
+    opacity: 0.75;
 
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
 }
 
+.proj-info-panel > *{
+    width: 90%;
+}
+
 .proj-info-panel.toggled{
     top: 20%;
+}
+
+.section-bot{
+    width: 100%;
+    height: 2px;
 }
 
 #about .section-title-stripe, #about .section-title{
@@ -365,5 +379,6 @@ body, html{
     #name > h1{font-size: 1.5em;}
     #name .link{display: none;}
     #nav-bar .link p{display: none;}
+    .proj-container{width: 300px; height: 250px;}
     /*.section-title-stripe{width: 100%; border-radius: 0;}*/
 }

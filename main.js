@@ -4,27 +4,81 @@ $(document).ready(function(){
     
     var projects = [{
             link: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
+            section:"games",
             name:"Quote Machine",
             description: "A simple game where you have to match a quote to it's author",
-            code: "html, css, js",
+            languages: "html, css, js",
+            frameworks: "none"
+        },
+        {
+            link: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
+            section:"games",
+            name:"Simon's Game",
+            description: "An enanched replica of the popular game from the 80's",
+            languages: "html, css, js",
+            frameworks: "jquery"
+        },
+        {
+            link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
+            section:"games",
+            name:"Tic Tac Toe - WG",
+            description: "A 'War Games' themed tic tac toe game",
+            languages: "html, css, js",
+            frameworks: "none"
+        },
+        {
+            link: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
+            section:"web-apps",
+            name:"Tomatimer",
+            description: "A pomodoro clock, useful to regulate your work/breaks flow",
+            languages: "html, css, js",
+            frameworks: "none"
+        },
+        {
+            link: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
+            section:"web-apps",
+            name:"Magnetic Calculator",
+            description: "A fully functional animated calculator",
+            languages: "html, css, js",
+            frameworks: "none"
+        },
+        {
+            link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
+            section:"web-apps",
+            name:"Wiki Dossiers",
+            description: "A Wikipedia search tool, developed to expirement with the Wikipedia's API",
+            languages: "html, css, js",
+            frameworks: "none"
+        },
+        {
+            link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
+            section:"web-apps",
+            name:"Local Weather",
+            description: "A single page weather application. It provides local weather data by using reverse geocoding",
+            languages: "html, css, js",
             frameworks: "none"
         }
     ];
 
-    for(var i=0; i < 5; i++)
+
+
+
+    function createNewProj(project, proto)
     {
-        var project = projects[0];
-        var $target = $("#" + project.section + " .proj-ext-container");
-        var projEl = $("#proto-proj").clone();
-        projEl.find(".proj-title").text(project.name);
-        projEl.find("iframe").attr("src", project.link);
-        projEl.find(".proj-description").text(project.description);
-        projEl.find(".proj-code span").text(project.code);
-        projEl.find(".proj-frameworks span").text(project.frameworks);
-        projEl.css("display", "flex");
-        projEl.appendTo($target);
-    } 
+        var clone = proto.clone();
+        var parent = $("#" + project.section + " .proj-ext-container");
+
+        clone.find(".proj-title").text(project.name);
+        clone.find("iframe").attr("src", project.link);
+        clone.find(".proj-description").text(project.description);
+        clone.find(".proj-lang span").text(project.languages);
+        clone.find(".proj-frameworks span").text(project.frameworks);
+        clone.css("display", "flex");       
+        clone.appendTo(parent);
+    }
+
+    for(var i=0; i < projects.length; i++)
+        createNewProj(projects[i], $("#proto-proj").clone());
 
 //GLOBAL VARS & LISTENERS
     $(".project-info-btn").hover(function(){
@@ -125,6 +179,7 @@ $(document).ready(function(){
 
 //SCROLLING AND FIXED BARS SYSTEM
 
+    var navBarOriginCol = $("#nav-bar").css("background-color");
     var tucked = false;
 
     $(window).scroll(function(){
@@ -143,14 +198,20 @@ $(document).ready(function(){
             tucked = false;
             $("#top").css({"top": "0", "position": "absolute"});
             $("#nav-bar").toggleClass("tucked");
+            resetNavbar();
             $("#nav-bar > a:first > div:first").addClass("hovered");
         }
     });
 
-    /* waypoints functionality */
+    function resetNavbar()
+    {
+        $("#nav-bar").css("background-color", navBarOriginCol);
+        $("#nav-bar a").each(function(){
+            $(this).find("div:first").removeClass("hovered");
+        });
+    }
 
-    var firstSectionId = $(".section:first").attr("id");
-    var navBarOriginCol = $("#nav-bar").css("background-color");
+    /* waypoints functionality */
 
     function navBarReacts(sectionId)
     {
@@ -164,30 +225,18 @@ $(document).ready(function(){
         });
     }
 
-    function resetNavbar()
-    {
-        $("#nav-bar").css("background-color", navBarOriginCol);
-        $("#nav-bar a").each(function(){
-            $(this).find("div:first").removeClass("hovered");
-        });
-    }
-
     $(".section").waypoint(function(scrolling){
         if(scrolling == "down")
             navBarReacts($(this.element).attr("id"));             
     });
 
-    $(".section-title-stripe").waypoint(function(scrolling){
+    $(".section-bot").waypoint(function(scrolling){
         if(scrolling == "up")
         {
-            var prevSection = $(this.element).closest(".section").prev(".section").attr("id");
-            
-            if(prevSection !== undefined)
-                navBarReacts(prevSection);
-            else
-                resetNavbar();
+            var sectionId = $(this.element).closest(".section").attr("id");
+            navBarReacts(sectionId);       
         }   
 
-    }, {offset : "20%"}); 
+    }, {offset : "0%"}); 
 
 });

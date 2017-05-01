@@ -42,14 +42,14 @@ $(document).ready(function(){
             languages: "html, css, js",
             frameworks: "none"
         },
-        {
-            link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
-            name:"Wiki Dossiers",
-            description: "A Wikipedia search tool, developed to expirement with the Wikipedia's API",
-            languages: "html, css, js",
-            frameworks: "none"
-        },
+        // {
+        //     link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
+        //     section:"web-apps",
+        //     name:"Wiki Dossiers",
+        //     description: "A Wikipedia search tool, developed to expirement with the Wikipedia's API",
+        //     languages: "html, css, js",
+        //     frameworks: "none"
+        // },
         {
             link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
@@ -70,6 +70,7 @@ $(document).ready(function(){
 
         clone.find(".proj-title").text(project.name);
         clone.find("iframe").attr("src", project.link);
+        clone.find(".proj-link").attr("href", project.link);
         clone.find(".proj-description").text(project.description);
         clone.find(".proj-lang span").text(project.languages);
         clone.find(".proj-frameworks span").text(project.frameworks);

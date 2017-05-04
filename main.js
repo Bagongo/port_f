@@ -42,6 +42,14 @@ $(document).ready(function(){
             languages: "html, css, js",
             frameworks: "none"
         },
+        {
+            link: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
+            section:"web-apps",
+            name:"Twitch Favorites",
+            description: "An application that lets you search for Twitch users and see status of your favorite streamers",
+            languages: "html, css, js",
+            frameworks: "jquery"
+        },
         // {
         //     link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
         //     section:"web-apps",
@@ -84,7 +92,13 @@ $(document).ready(function(){
 //GLOBAL VARS & LISTENERS
     $(".project-info-btn").hover(function(){
         $(this).closest(".proj-container").find("iframe, .proj-info-panel").toggleClass("toggled");
-    });    
+    });  
+
+    $(".proj-container").hover(function(){
+        $(this).find(".project-info-btn").addClass("flash");
+    }, function(){
+        $(this).find(".project-info-btn").removeClass("flash");
+    });  
 
 //TOP ANIMATION INNER FUNCTIONING    
 

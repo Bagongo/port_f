@@ -297,18 +297,26 @@ body, html{
     font-size: 1.2em;
 }
 
+.proj-link:visited{
+    color: black;
+}
+
 .project-info-btn, .proj-link{
     align-self: flex-start;
     margin: 3% 4%;
 }
 
-.proj-link:visited{
-    color: black;
-}
-
-
 .project-info-btn:hover, .proj-link:hover{
     color: white;
+}
+
+.flash{
+    animation: flash linear 0.3s 0.4s alternate ;
+}
+
+@keyframes flash{
+    0%   { color: transparent;}
+    50% { color: white;}
 }
 
 .proj-container > iframe{

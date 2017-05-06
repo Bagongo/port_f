@@ -247,15 +247,52 @@ body, html{
     align-items: center;
     align-content: center;
     border-radius: 5px;
-    margin: 50px;
-    padding: 0 15px;
+    margin: 50px 0;
     font-size: 1.5em;
     color: black;
     background-color: black;
 }
 
-.proj-ext-container{
+.section-title-stripe > *{
+    margin: 0 15px;
+}
+
+#about-container{
     width: 90%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#about-container > *{
+    margin-top: 25px;
+}
+
+#about-container img{
+    width: 200px;
+}
+
+#about-container p{
+    width: 75%;
+}
+
+#about-imgs{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-imgs img{
+    height: 75px;
+    width: auto;
+    margin: 15px;
+}
+
+.proj-ext-container{
+    width: 80%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -494,7 +531,9 @@ body, html{
     #name > h1{font-size: 1.5em;}
     #name .link{display: none;}
     #nav-bar .link p{display: none;}
+    #about-container p{width: 85%;}
     .proj-container{width: 300px; height: 250px;}
     #social-container, #message-container{width: 400px;}
     #social-container h1{font-size: 1.2em;}
+    .section-title-stripe{width: 100%; border-radius: 0;}
 }

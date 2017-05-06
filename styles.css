@@ -358,12 +358,113 @@ body, html{
     top: 20%;
 }
 
-.section-bot{
-    width: 100%;
-    height: 2px;
+#social-container, #message-container{
+    width: 500px;
 }
 
-#about .section-title-stripe, #about .section-title{
+#contacts-cont{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 1.5em;
+}
+
+#contacts-cont > *{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#contacts-cont h4{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container > *{
+    font-size: 0.75em;
+    margin: 15px;
+}
+
+#form-container > input, #form-container > textarea{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: whitesmoke;
+}
+
+#form-container > input:focus, #form-container > textarea:focus{
+    outline: none;
+    box-shadow: 0 0 8px #fcac4f;
+}
+
+#form-container > input{
+    width: 90%;
+    height: 30px;
+}
+
+#form-container > textarea{
+    width: 90%;
+    height: 250px;
+}
+
+#form-container > button{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #fcac4f;
+    box-shadow: 0 3px 5px #CF8F43;
+}
+
+#form-container > button:hover{
+    background-color: #FEC469;
+    box-shadow: 0 3px 10px #CF8F43;
+}
+
+#soc-btns-container{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: #fcac4f;
+    border-bottom: solid 4px whitesmoke;
+}
+
+#soc-btns-container > div{
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#soc-btns-container span{
+    position: absolute;
+    text-shadow: 0 3px 5px #CF8F43;
+}
+
+#soc-btns-container span:hover{
+    color: #FEC469;
+    text-shadow: 0 3px 8px #CF8F43;
+}
+
+#about .section-title-stripe{
     background-color: #ffea5e;
 }    
     
@@ -375,7 +476,7 @@ body, html{
     background-color: #f25d7f  ;
 } 
     
-#contacts .section-title-stripe, #msg-container{
+#contacts .section-title-stripe{
     background-color: #fcac4f;
 } 
 
@@ -383,11 +484,17 @@ body, html{
     display: none;
 } 
 
+.section-bot{
+    width: 100%;
+    height: 2px;
+}
+
 @media screen and (max-width: 768px) {
     #name {justify-content: center;}
     #name > h1{font-size: 1.5em;}
     #name .link{display: none;}
     #nav-bar .link p{display: none;}
     .proj-container{width: 300px; height: 250px;}
-    /*.section-title-stripe{width: 100%; border-radius: 0;}*/
+    #social-container, #message-container{width: 400px;}
+    #social-container h1{font-size: 1.2em;}
 }

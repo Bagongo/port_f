@@ -24,7 +24,7 @@ $(document).ready(function(){
             link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
             name:"Tic Tac Toe - WG",
-            description: "A 'War Games' themed tic tac toe game",
+            description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
             languages: "html, css, js",
             frameworks: "none",
             priority: 2

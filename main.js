@@ -235,6 +235,21 @@ $(document).ready(function(){
         });
     }
 
+    $("#nav-bar a").on("click", function(event){
+        var target = $(this).attr("href");
+        if(target !== "")
+        {
+            event.preventDefault();
+            var targetHeight = $(target).offset().top;
+            console.log("window", $(window).scrollTop(), "target", $(target).offset().top);
+            $('html, body').animate({scrollTop: targetHeight + $(window).scrollTop()}, 500);
+        }
+    });
+
+    $("html").scroll(function(){
+        console.log("hey");
+    });
+
     /* waypoints functionality */
 
     function navBarReacts(sectionId)

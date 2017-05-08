@@ -257,6 +257,10 @@ body, html{
     margin: 0 15px;
 }
 
+.top-anchor{
+    position: absolute;
+}
+
 #about-container{
     width: 90%;
     display: flex;
@@ -270,7 +274,7 @@ body, html{
 }
 
 #about-container img{
-    width: 200px;
+    width: 250px;
 }
 
 #about-container p{

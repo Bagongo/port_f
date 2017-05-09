@@ -201,7 +201,7 @@ $(document).ready(function(){
 
     setTimeout(eraseLastInput, 1000);
 
-//SCROLLING AND FIXED BARS SYSTEM
+//SCROLLING AND BARS SYSTEM
 
     var navBarOriginCol = $("#nav-bar").css("background-color");
     var tucked = false;
@@ -227,6 +227,15 @@ $(document).ready(function(){
         }
     });
 
+    $(window).resize(function(){
+        if(tucked)
+        {
+            $("#top").removeClass("all-trans");
+            $("#top").css("top", parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height()) + "px");
+            $("#top").addClass("all-trans");
+        }
+    });
+
     function resetNavbar()
     {
         $("#nav-bar").css("background-color", navBarOriginCol);
@@ -235,19 +244,15 @@ $(document).ready(function(){
         });
     }
 
+    //smooth scrolling when navbar links get clicked
     $("#nav-bar a").on("click", function(event){
         var target = $(this).attr("href");
         if(target !== "")
         {
             event.preventDefault();
             var targetHeight = $(target).offset().top;
-            console.log("window", $(window).scrollTop(), "target", $(target).offset().top);
             $('html, body').animate({scrollTop: targetHeight + $(window).scrollTop()}, 500);
         }
-    });
-
-    $("html").scroll(function(){
-        console.log("hey");
     });
 
     /* waypoints functionality */

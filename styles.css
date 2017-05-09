@@ -37,12 +37,9 @@ body, html{
     display: flex;
     justify-content: center;
     align-items: center;
-    /*text-shadow: 0px 1px 1px gray; */
-
 }
 
 .link{
-    position: relative;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -60,6 +57,7 @@ body, html{
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+    background-color: transparent;
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -530,7 +528,7 @@ body, html{
     height: 2px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
     #name {justify-content: center;}
     #name > h1{font-size: 1.5em;}
     #name .link{display: none;}
@@ -540,4 +538,16 @@ body, html{
     #social-container, #message-container{width: 400px;}
     #social-container h1{font-size: 1.2em;}
     .section-title-stripe{width: 100%; border-radius: 0;}
+}
+
+@media screen and (max-height: 450px){
+    #top{min-height: 250px;}
+    #top-anim > * {margin: 0 25px;}
+    #top-anim{flex-flow: row; justify-content: center;}
+    #laptop{margin-top: 50px;}
+}
+
+@media screen and (max-height: 320px){
+    #screen{width: 150px; height: 90px;}
+    #keyboard{width: 150px; height: 78px;}
 }

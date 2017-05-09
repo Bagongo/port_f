@@ -4,6 +4,8 @@ $(document).ready(function(){
     
     var projects = [{
             link: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: false,
             section:"games",
             name:"Quote Machine",
             description: "A simple game where you have to match a quote to it's author",
@@ -14,6 +16,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: false,
             name:"Simon's Game",
             description: "An enanched replica of the popular game from the 80's",
             languages: "html, css, js",
@@ -23,6 +27,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: false,
             name:"Tic Tac Toe - WG",
             description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
             languages: "html, css, js",
@@ -32,6 +38,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: false,
             name:"Tomatimer",
             description: "A pomodoro clock, useful to regulate your work/breaks flow",
             languages: "html, css, js",
@@ -41,6 +49,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: false,
             name:"Magnetic Calculator",
             description: "A fully functional animated calculator",
             languages: "html, css, js",
@@ -50,6 +60,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: false,
             name:"Twitch Favorites",
             description: "An application that lets you search for Twitch users and see status of your favorite streamers",
             languages: "html, css, js",
@@ -59,6 +71,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: true,
             name:"Wiki Dossiers",
             description: "A Wikipedia search tool, developed to experiment with Wikipedia's API",
             languages: "html, css, js",
@@ -68,6 +82,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            iframe: true,
             name:"Local Weather",
             description: "A single page weather application. It provides local weather data by using reverse geocoding",
             languages: "html, css, js",
@@ -79,10 +95,15 @@ $(document).ready(function(){
     function createNewProj(project, proto)
     {
         var clone = proto.clone();
+        clone.removeAttr('id');
         var parent = $("#" + project.section + " .proj-ext-container");
+        var $frame = project.iframe === true ? $("<iframe src= " + project.link + "></iframe>") : $("<img src= " + project.imgLink + " />");
+
+        //$frame.insertAfter(clone.find(".proj-head"));
+        clone.find(".proj-frame").append($frame);
 
         clone.find(".proj-title").text(project.name);
-        clone.find("iframe").attr("src", project.link);
+        //clone.find("iframe").attr("src", project.link);
         clone.find(".proj-link").attr("href", project.link);
         clone.find(".proj-description").text(project.description);
         clone.find(".proj-lang span").text(project.languages);
@@ -95,12 +116,14 @@ $(document).ready(function(){
         return(b.priority - a.priority);
     });
 
+    console.log(projects);
+
     for(var i=0; i < projects.length; i++)
-        createNewProj(projects[i], $("#proto-proj").clone());
+        createNewProj(projects[i], $("#proto-proj"));
 
 //GLOBAL VARS & LISTENERS
     $(".project-info-btn").hover(function(){
-        $(this).closest(".proj-container").find("iframe, .proj-info-panel").toggleClass("toggled");
+        $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
     });  
 
     $(".proj-container").hover(function(){

@@ -358,7 +358,7 @@ body, html{
     50% { color: white;}
 }
 
-.proj-container > iframe{
+.proj-frame{
     height: 80%;
     width: 100%;
     border: none;
@@ -367,10 +367,21 @@ body, html{
     transition: all .5s ease;
 }
 
-.proj-container iframe.toggled{
+.proj-frame.toggled{
     -webkit-filter: blur(4px);    
     filter: blur(4px);    
-} 
+}
+
+.proj-frame iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.proj-frame img{
+    width: 100%;
+    height: auto;
+}  
 
 .proj-info-panel{
     position: absolute;

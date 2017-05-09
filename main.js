@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     var projects = [{
             link: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341381/q_machine-app_bmvpbp.png",
             iframe: false,
             section:"games",
             name:"Quote Machine",
@@ -16,7 +16,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341381/simon-app_ze9lou.png",
             iframe: false,
             name:"Simon's Game",
             description: "An enanched replica of the popular game from the 80's",
@@ -27,7 +27,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341369/tictactoe-app_vd89sw.png",
             iframe: false,
             name:"Tic Tac Toe - WG",
             description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
@@ -38,7 +38,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341376/pomodoro-app_uxlxto.png",
             iframe: false,
             name:"Tomatimer",
             description: "A pomodoro clock, useful to regulate your work/breaks flow",
@@ -49,7 +49,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341372/calculator-app_ii5fnv.png",
             iframe: false,
             name:"Magnetic Calculator",
             description: "A fully functional animated calculator",
@@ -60,7 +60,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341377/twitch-app_py5l5g.png",
             iframe: false,
             name:"Twitch Favorites",
             description: "An application that lets you search for Twitch users and see status of your favorite streamers",
@@ -71,8 +71,8 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
-            iframe: true,
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341372/wiki-app_rcpsac.png",
+            iframe: false,
             name:"Wiki Dossiers",
             description: "A Wikipedia search tool, developed to experiment with Wikipedia's API",
             languages: "html, css, js",
@@ -83,7 +83,7 @@ $(document).ready(function(){
             link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
-            iframe: true,
+            iframe: false,
             name:"Local Weather",
             description: "A single page weather application. It provides local weather data by using reverse geocoding",
             languages: "html, css, js",
@@ -126,11 +126,11 @@ $(document).ready(function(){
         $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
     });  
 
-    $(".proj-container").hover(function(){
-        $(this).find(".project-info-btn").addClass("flash");
-    }, function(){
-        $(this).find(".project-info-btn").removeClass("flash");
-    });  
+    // $(".proj-container").hover(function(){
+    //     $(this).find(".project-info-btn, .proj-link i").addClass("flash");
+    // }, function(){
+    //     $(this).find(".project-info-btn, .proj-link i").removeClass("flash");
+    // });  
 
 //TOP ANIMATION INNER FUNCTIONING    
 

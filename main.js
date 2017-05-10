@@ -4,7 +4,7 @@ $(document).ready(function(){
     
     var projects = [{
             link: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341381/q_machine-app_bmvpbp.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365873/portf_projects_pics/quotes-app.png",
             iframe: false,
             section:"games",
             name:"Quote Machine",
@@ -16,7 +16,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341381/simon-app_ze9lou.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365871/portf_projects_pics/simons-app.png",
             iframe: false,
             name:"Simon's Game",
             description: "An enanched replica of the popular game from the 80's",
@@ -27,7 +27,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341369/tictactoe-app_vd89sw.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/tictactoe-app.png",
             iframe: false,
             name:"Tic Tac Toe - WG",
             description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
@@ -38,7 +38,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341376/pomodoro-app_uxlxto.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/pomodoro-app.png",
             iframe: false,
             name:"Tomatimer",
             description: "A pomodoro clock, useful to regulate your work/breaks flow",
@@ -49,7 +49,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341372/calculator-app_ii5fnv.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365869/portf_projects_pics/calculator-app.png",
             iframe: false,
             name:"Magnetic Calculator",
             description: "A fully functional animated calculator",
@@ -71,7 +71,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341372/wiki-app_rcpsac.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494366493/portf_projects_pics/wiki-app.png",
             iframe: false,
             name:"Wiki Dossiers",
             description: "A Wikipedia search tool, developed to experiment with Wikipedia's API",
@@ -82,7 +82,7 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494332281/Schermata_2017-05-09_alle_13.55.59_fijzbj.png",
+            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365879/portf_projects_pics/weather-app.png",
             iframe: false,
             name:"Local Weather",
             description: "A single page weather application. It provides local weather data by using reverse geocoding",
@@ -250,8 +250,18 @@ $(document).ready(function(){
         }
     });
 
+    var timeout = null;
+    $(window).bind("scroll", function(){
+        $("#me-img").css("animation-play-state", "running");
+        clearTimeout(timeout);
+        timeout = setTimeout(function(){
+            $("#me-img").css("animation-play-state", "paused");
+        }, 250);
+    });
+    
+
     $(window).resize(function(){
-        if(tucked)
+            if(tucked)
         {
             $("#top").removeClass("all-trans");
             $("#top").css("top", parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height()) + "px");

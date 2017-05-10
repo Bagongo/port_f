@@ -250,16 +250,6 @@ $(document).ready(function(){
         }
     });
 
-    var timeout = null;
-    $(window).bind("scroll", function(){
-        $("#me-img").css("animation-play-state", "running");
-        clearTimeout(timeout);
-        timeout = setTimeout(function(){
-            $("#me-img").css("animation-play-state", "paused");
-        }, 250);
-    });
-    
-
     $(window).resize(function(){
             if(tucked)
         {

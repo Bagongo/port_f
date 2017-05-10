@@ -10,6 +10,14 @@ body, html{
     transition: all 0.25s ease-in-out;
 }
 
+a{
+    outline: none;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
 #flex-container{
     width: 100%;
     height: 100%;
@@ -385,8 +393,11 @@ body, html{
 
 .proj-frame{
     height: 80%;
-    width: 100%;
-    border: none;
+    width: 100%; 
+
+    background-position: center top; 
+    background-size: cover;
+    background-repeat: no-repeat;
 
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
@@ -401,12 +412,7 @@ body, html{
     width: 100%;
     height: 100%;
     border: none;
-}
-
-.proj-frame img{
-    width: 100%;
-    height: auto;
-}  
+} 
 
 .proj-info-panel{
     position: absolute;
@@ -427,6 +433,7 @@ body, html{
 
 .proj-info-panel > *{
     width: 90%;
+    margin: 5px 0;
 }
 
 .proj-info-panel.toggled{
@@ -570,8 +577,8 @@ body, html{
     #name .link{display: none;}
     #nav-bar .link p{display: none;}
     #about-container p{width: 85%;}
-    .proj-container{width: 300px; height: 250px;}
-    #social-container, #message-container{width: 400px;}
+    .proj-container{width: 100%; height: 400px;}
+    #social-container, #message-container{width: 100%;}
     #social-container h1{font-size: 1.2em;}
     .section-title-stripe{width: 100%; border-radius: 0;}
 }

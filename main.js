@@ -226,10 +226,39 @@ $(document).ready(function(){
 
 //SCROLLING AND BARS SYSTEM
 
+    var scrollTimer, lastScrollFireTime = 0;
+
+    $(window).on('scroll', function() {
+        var minScrollTime = 10;
+        var now = new Date().getTime();
+
+        function processScroll() 
+        {
+            repositionTopAndNavBar();
+            scrollRainBg();
+        }
+
+        if (!scrollTimer) 
+        {
+            if (now - lastScrollFireTime > (3 * minScrollTime)) 
+            {
+                processScroll(); // fire immediately on first scroll
+                lastScrollFireTime = now;
+            }
+
+            scrollTimer = setTimeout(function() {
+                scrollTimer = null;
+                lastScrollFireTime = new Date().getTime();
+                processScroll();
+            }, minScrollTime);
+        }
+    });
+
     var navBarOriginCol = $("#nav-bar").css("background-color");
     var tucked = false;
 
-    $(window).scroll(function(){
+    function repositionTopAndNavBar()
+    {
         var top = parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
         var height = $(window).scrollTop(); 
 
@@ -248,10 +277,21 @@ $(document).ready(function(){
             resetNavbar();
             $("#nav-bar > a:first > div:first").addClass("hovered");
         }
-    });
+    }
+
+    function scrollRainBg()
+    {
+        var bg = $("#rain-bg");
+        var bgTop = parseInt(bg.css("background-position-y")) - 1;
+
+        if(bgTop <= 0)
+            bg.css("background-position-y", "100%");
+        else
+            $("#rain-bg").css("background-position-y", bgTop + "%");
+    }
 
     $(window).resize(function(){
-            if(tucked)
+        if(tucked)
         {
             $("#top").removeClass("all-trans");
             $("#top").css("top", parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height()) + "px");

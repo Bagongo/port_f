@@ -226,67 +226,7 @@ $(document).ready(function(){
 
 //SCROLLING AND BARS SYSTEM
 
-    var navBarOriginCol = $("#nav-bar").css("background-color");
-    var tucked = false;
-
-    $(window).scroll(function(){
-        var top = parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
-        var height = $(window).scrollTop(); 
-
-        if(height > 50 && !tucked)
-        {
-            tucked = true;
-            $("#top").css({"top": top + "px", "position": "fixed"});
-            $("#nav-bar").toggleClass("tucked");
-            $("#nav-bar > a > div:first").removeClass("hovered");
-        }
-        else if (height <= 50 && tucked)
-        {
-            tucked = false;
-            $("#top").css({"top": "0", "position": "absolute"});
-            $("#nav-bar").toggleClass("tucked");
-            resetNavbar();
-            $("#nav-bar > a:first > div:first").addClass("hovered");
-        }
-    });
-
-    var timeout = null;
-    $(window).bind("scroll", function(){
-        $("#me-img").css("animation-play-state", "running");
-        clearTimeout(timeout);
-        timeout = setTimeout(function(){
-            $("#me-img").css("animation-play-state", "paused");
-        }, 250);
-    });
     
-
-    $(window).resize(function(){
-            if(tucked)
-        {
-            $("#top").removeClass("all-trans");
-            $("#top").css("top", parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height()) + "px");
-            $("#top").addClass("all-trans");
-        }
-    });
-
-    function resetNavbar()
-    {
-        $("#nav-bar").css("background-color", navBarOriginCol);
-        $("#nav-bar a").each(function(){
-            $(this).find("div:first").removeClass("hovered");
-        });
-    }
-
-    //smooth scrolling when navbar links get clicked
-    $("#nav-bar a").on("click", function(event){
-        var target = $(this).attr("href");
-        if(target !== "")
-        {
-            event.preventDefault();
-            var targetHeight = $(target).offset().top;
-            $('html, body').animate({scrollTop: targetHeight + $(window).scrollTop()}, 500);
-        }
-    });
 
     /* waypoints functionality */
 

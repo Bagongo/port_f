@@ -272,38 +272,7 @@ body, html{
     margin-top: 25px;
 }
 
-#me-img{
-    width: 250px;
-    height: 333px;
-    background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0000.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
 
-    -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
-    animation-play-state: paused;
-}
-
-#me-img.rain{
-    -webkit-animation: loopgif 1s infinite; 
-    animation: loopgif 1s infinite; 
-}
-
-@keyframes loopgif{
-    0%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0000.png");}
-    7.7%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409282/code_rain/code_rain0001.png");}
-    15.14%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409284/code_rain/code_rain0002.png");}
-    23.1%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409283/code_rain/code_rain0003.png");}
-    30.8%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0004.png");}
-    38.5%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0005.png");}
-    46.2%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0006.png");}
-    53.9%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409283/code_rain/code_rain0007.png");}
-    61.7%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409277/code_rain/code_rain0008.png");}
-    69.3%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0009.png");}
-    77%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409283/code_rain/code_rain0010.png");}
-    84.7%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409279/code_rain/code_rain0011.png");}
-    100%{background-image: url("http://res.cloudinary.com/dourvudhy/image/upload/v1494409283/code_rain/code_rain0012.png");}
-}
 
 #about-container p{
     width: 75%;

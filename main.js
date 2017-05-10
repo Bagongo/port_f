@@ -226,8 +226,97 @@ $(document).ready(function(){
 
 //SCROLLING AND BARS SYSTEM
 
-    
+    var scrollTimer, lastScrollFireTime = 0;
 
+    $(window).on('scroll', function() {
+        var minScrollTime = 10;
+        var now = new Date().getTime();
+
+        function processScroll() 
+        {
+            repositionTopAndNavBar();
+            scrollRainBg();
+        }
+
+        if (!scrollTimer) 
+        {
+            if (now - lastScrollFireTime > (3 * minScrollTime)) 
+            {
+                processScroll(); // fire immediately on first scroll
+                lastScrollFireTime = now;
+            }
+
+            scrollTimer = setTimeout(function() {
+                scrollTimer = null;
+                lastScrollFireTime = new Date().getTime();
+                processScroll();
+            }, minScrollTime);
+        }
+    });
+
+    var navBarOriginCol = $("#nav-bar").css("background-color");
+    var tucked = false;
+
+    function repositionTopAndNavBar()
+    {
+        var top = parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
+        var height = $(window).scrollTop(); 
+
+        if(height > 50 && !tucked)
+        {
+            tucked = true;
+            $("#top").css({"top": top + "px", "position": "fixed"});
+            $("#nav-bar").toggleClass("tucked");
+            $("#nav-bar > a > div:first").removeClass("hovered");
+        }
+        else if (height <= 50 && tucked)
+        {
+            tucked = false;
+            $("#top").css({"top": "0", "position": "absolute"});
+            $("#nav-bar").toggleClass("tucked");
+            resetNavbar();
+            $("#nav-bar > a:first > div:first").addClass("hovered");
+        }
+    }
+
+    function scrollRainBg()
+    {
+        var bg = $("#rain-bg");
+        var bgTop = parseInt(bg.css("background-position-y")) - 1;
+
+        if(bgTop <= 0)
+            bg.css("background-position-y", "100%");
+        else
+            $("#rain-bg").css("background-position-y", bgTop + "%");
+    }
+
+    $(window).resize(function(){
+        if(tucked)
+        {
+            $("#top").removeClass("all-trans");
+            $("#top").css("top", parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height()) + "px");
+            $("#top").addClass("all-trans");
+        }
+    });
+
+    function resetNavbar()
+    {
+        $("#nav-bar").css("background-color", navBarOriginCol);
+        $("#nav-bar a").each(function(){
+            $(this).find("div:first").removeClass("hovered");
+        });
+    }
+
+    //smooth scrolling when navbar links get clicked
+    $("#nav-bar a").on("click", function(event){
+        var target = $(this).attr("href");
+        if(target !== "")
+        {
+            event.preventDefault();
+            var targetHeight = $(target).offset().top;
+            $('html, body').animate({scrollTop: targetHeight + $(window).scrollTop()}, 500);
+        }
+    });
     /* waypoints functionality */
 
     function navBarReacts(sectionId)

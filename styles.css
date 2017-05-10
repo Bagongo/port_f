@@ -272,10 +272,36 @@ body, html{
     margin-top: 25px;
 }
 
+#coderain{
+    position: relative;
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+}
 
+#coderain > #rain-bg{
+    width: 250px;
+    height: 350px;
+    background-image: url("/imgs/code_r.png");
+    background-position: 50% 100%; 
+    background-size: 250px auto;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+#coderain > #me-img{
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 400px;
+}
 
 #about-container p{
     width: 75%;
+    text-align: center;
 }
 
 #about-imgs{

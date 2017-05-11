@@ -240,14 +240,13 @@ $(document).ready(function(){
 //SCROLLING AND BARS SYSTEM
 
     var scrollTimer, lastScrollFireTime = 0;
-
     $(window).on('scroll', function() {
         var minScrollTime = 10;
         var now = new Date().getTime();
 
         function processScroll() 
         {
-            repositionTopAndNavBar();
+            manageTopPosition();
             scrollRainBg();
         }
 
@@ -270,26 +269,66 @@ $(document).ready(function(){
     var navBarOriginCol = $("#nav-bar").css("background-color");
     var tucked = false;
 
-    function repositionTopAndNavBar()
+    function manageTopPosition()
     {
-        var top = parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
-        var height = $(window).scrollTop(); 
+        var scrollHeight = $(window).scrollTop();
 
-        if(height > 50 && !tucked)
+        if(scrollHeight > 50 && !tucked)
         {
             tucked = true;
-            $("#top").css({"top": top + "px", "position": "fixed"});
+            $("#top").css({"top": determineTopHeight() + "px", "position": "fixed"});
             $("#nav-bar").toggleClass("tucked");
             $("#nav-bar > a > div:first").removeClass("hovered");
         }
-        else if (height <= 50 && tucked)
+        else if (scrollHeight <= 50 && tucked)
         {
             tucked = false;
             $("#top").css({"top": "0", "position": "absolute"});
+            $("#name").css("display", "flex");
             $("#nav-bar").toggleClass("tucked");
             resetNavbar();
             $("#nav-bar > a:first > div:first").addClass("hovered");
         }
+    }
+
+    var height = window.innerHeight;
+    $(window).resize(function(){
+        if(tucked)
+        {
+            setTimeout(function(){
+                showHideHead(); 
+                $("#top").removeClass("all-trans");
+                $("#top").css("top", determineTopHeight() + "px");
+                $("#top").addClass("all-trans");
+
+            }, 500);
+        }
+    });
+
+    function showHideHead()
+    {
+        if($(window).height() <= 450)
+            $("#name").css("display", "none");
+        else
+            $("#name").css("display", "flex");
+    }
+
+    function determineTopHeight()
+    {
+        showHideHead(); 
+
+        if($("#name").css("display") === "none")
+            return parseInt($("#nav-bar").height() - $("#top").height());
+        else
+            return parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
+    }
+
+    function resetNavbar()
+    {
+        $("#nav-bar").css("background-color", navBarOriginCol);
+        $("#nav-bar a").each(function(){
+            $(this).find("div:first").removeClass("hovered");
+        });
     }
 
     function scrollRainBg()
@@ -301,23 +340,6 @@ $(document).ready(function(){
             bg.css("background-position-y", "100%");
         else
             $("#rain-bg").css("background-position-y", bgTop + "%");
-    }
-
-    $(window).resize(function(){
-        if(tucked)
-        {
-            $("#top").removeClass("all-trans");
-            $("#top").css("top", parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height()) + "px");
-            $("#top").addClass("all-trans");
-        }
-    });
-
-    function resetNavbar()
-    {
-        $("#nav-bar").css("background-color", navBarOriginCol);
-        $("#nav-bar a").each(function(){
-            $(this).find("div:first").removeClass("hovered");
-        });
     }
 
     //smooth scrolling when navbar links get clicked

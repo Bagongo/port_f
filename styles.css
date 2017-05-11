@@ -218,7 +218,8 @@ a:link, a:visited {
 }
 
 #nav-bar.tucked{
-    box-shadow: 0 8px 10px #565757;  
+    box-shadow: 0 8px 10px #565757; 
+    margin-top: -10px; 
     opacity: .9;
 }
 

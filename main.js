@@ -105,11 +105,10 @@ $(document).ready(function(){
         var clone = proto.clone();
         clone.removeAttr('id');
         var parent = $("#" + project.section + " .proj-ext-container");
-        var $frame = project.iframe === true ? $("<iframe src= " + project.link + "></iframe>") : $("<img src= " + project.imgLink + " />");
 
         if(project.iframe && $(window).width() > 768)
         {
-            $iframe = $("<iframe src= " + project.link + "></iframe>");
+            var $iframe = $("<iframe src= " + project.link + "></iframe>");
             clone.find(".proj-frame").append($frame);
         }
         else

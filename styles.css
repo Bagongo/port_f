@@ -355,7 +355,7 @@ a:link, a:visited {
     transition: all .5s ease;   
 }
 
-.proj-container.hovered{
+.proj-container:hover{
     top: -10px;
     left: 5px;
     box-shadow: -20px 15px 15px #888888;
@@ -446,7 +446,11 @@ a:link, a:visited {
 }
 
 #social-container, #message-container{
-    width: 500px;
+    width: 450px;
+}
+
+#social-container > *{
+    margin-bottom: 25px;
 }
 
 #contacts-cont{
@@ -465,11 +469,9 @@ a:link, a:visited {
     align-items: center;
 }
 
-#contacts-cont h4{
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
+#contacts-cont h4, h1{
+    text-align: center;
+    margin: 25px 0;
 }
 
 #form-container{
@@ -522,6 +524,31 @@ a:link, a:visited {
     box-shadow: 0 3px 10px #CF8F43;
 }
 
+#direct-contact-cont{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-family: verdana;
+    font-size: 0.7em; 
+    background-color: whitesmoke;
+}
+
+#direct-contact-cont > div{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+#direct-contact-cont p, a{
+    margin: 0 0 0 5px;
+}
+
 #soc-btns-container{
     width: 100%;
     height: 100px;
@@ -533,22 +560,35 @@ a:link, a:visited {
     border-bottom: solid 4px whitesmoke;
 }
 
-#soc-btns-container > div{
+#soc-btns-container > a{
     flex-grow: 1;
+    height: 100%;
+}
+
+#soc-btns-container > a > div{
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#soc-btns-container span{
-    position: absolute;
+#soc-btns-container > a > div > i{
     text-shadow: 0 3px 5px #CF8F43;
 }
 
-#soc-btns-container span:hover{
+#soc-btns-container i:hover{
     color: #FEC469;
     text-shadow: 0 3px 8px #CF8F43;
+}
+
+#soc-btns-container > a{
+    outline: none;
+}
+
+#soc-btns-container > a:link, #soc-btns-container > a:visited {
+    text-decoration: none;
+    color: #fcac4f;
 }
 
 #about .section-title-stripe{

@@ -149,17 +149,7 @@ $(document).ready(function(){
     $(".link").bind("touchstart touchend", function(e){
         var obj = $(this);
         setTimeout(function(){obj.removeClass("hovered");}, 100);
-    });
-
-    // $(".link").bind("touchend mouseout", function(){
-    //     $(this).removeClass("hovered");
-    // });  
-
-    // $(".proj-container").hover(function(){
-    //     $(this).find(".project-info-btn, .proj-link i").addClass("flash");
-    // }, function(){
-    //     $(this).find(".project-info-btn, .proj-link i").removeClass("flash");
-    // });  
+    }); 
 
 //TOP ANIMATION INNER FUNCTIONING    
 

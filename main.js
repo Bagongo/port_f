@@ -33,16 +33,15 @@ $(document).ready(function(){
         clone.find(".proj-description").text(project.description);
         clone.find(".proj-lang span").text(project.languages);
         clone.find(".proj-frameworks span").text(project.frameworks);
-        clone.css("display", "flex");       
+        clone.css("display", "flex");
+        clone.find(".project-info-btn").hover(function(){
+            $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
+        });
+
         clone.appendTo(parent);
     }
 
-//GLOBAL VARS & LISTENERS
-
-    // lifts info panel on projects
-    $(".project-info-btn").hover(function(){
-        $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
-    });
+//GLOBAL VARS & LISTENERS    
 
     // manages hovering events on navbar links to prevent 'sticky hovering' on mobile devices
     $(".link").bind("mouseover mouseout", function(e){

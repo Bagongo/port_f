@@ -3,14 +3,10 @@ $(document).ready(function(){
 //PROJECTS MANAGEMENT
     
     var projects = [{
-<<<<<<< HEAD
-            link: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
-=======
             link:"//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
             imgLink:"http://res.cloudinary.com/dourvudhy/image/upload/v1494365873/portf_projects_pics/quotes-app.png",
             imgLocal:"imgs/projx/quotes-app.png",
             iframe: false,
->>>>>>> reboot
             section:"games",
             name:"Quote Machine",
             description: "A simple game where you have to match a quote to it's author",
@@ -21,12 +17,9 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
-<<<<<<< HEAD
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365871/portf_projects_pics/simons-app.png",
             imgLocal:"imgs/projx/simons-app.png",
             iframe: false,
->>>>>>> reboot
             name:"Simon's Game",
             description: "An enanched replica of the popular game from the 80's",
             languages: "html, css, js",
@@ -36,16 +29,11 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
-<<<<<<< HEAD
-            name:"Tic Tac Toe - WG",
-            description: "A 'War Games' themed tic tac toe game",
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/tictactoe-app.png",
             imgLocal:"imgs/projx/tictactoe-app.png", 
             iframe: false,
             name:"Tic Tac Toe - WG",
             description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
->>>>>>> reboot
             languages: "html, css, js",
             frameworks: "none",
             priority: 2
@@ -53,12 +41,9 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-<<<<<<< HEAD
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/pomodoro-app.png",
             imgLocal:"imgs/projx/pomodoro-app.png",
             iframe: false,
->>>>>>> reboot
             name:"Tomatimer",
             description: "A pomodoro clock, useful to regulate your work/breaks flow",
             languages: "html, css, js",
@@ -68,12 +53,9 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-<<<<<<< HEAD
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365869/portf_projects_pics/calculator-app.png",
             imgLocal:"imgs/projx/calculator-app.png",
             iframe: false,
->>>>>>> reboot
             name:"Magnetic Calculator",
             description: "A fully functional animated calculator",
             languages: "html, css, js",
@@ -83,12 +65,9 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-<<<<<<< HEAD
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341377/twitch-app_py5l5g.png",
             imgLocal:"imgs/projx/twitch-app.png",
             iframe: false,
->>>>>>> reboot
             name:"Twitch Favorites",
             description: "An application that lets you search for Twitch users and see status of your favorite streamers",
             languages: "html, css, js",
@@ -98,12 +77,9 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-<<<<<<< HEAD
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494366493/portf_projects_pics/wiki-app.png",
             imgLocal:"imgs/projx/wiki-app.png",
             iframe: false,
->>>>>>> reboot
             name:"Wiki Dossiers",
             description: "A Wikipedia search tool, developed to experiment with Wikipedia's API",
             languages: "html, css, js",
@@ -113,12 +89,9 @@ $(document).ready(function(){
         {
             link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
             section:"web-apps",
-<<<<<<< HEAD
-=======
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365879/portf_projects_pics/weather-app.png", 
             imgLocal:"imgs/projx/weather-app.png",
             iframe: false,
->>>>>>> reboot
             name:"Local Weather",
             description: "A single page weather application. It provides local weather data by using reverse geocoding",
             languages: "html, css, js",
@@ -130,12 +103,6 @@ $(document).ready(function(){
     function createNewProj(project, proto)
     {
         var clone = proto.clone();
-<<<<<<< HEAD
-        var parent = $("#" + project.section + " .proj-ext-container");
-
-        clone.find(".proj-title").text(project.name);
-        clone.find("iframe").attr("src", project.link);
-=======
         clone.removeAttr('id');
         var parent = $("#" + project.section + " .proj-ext-container");
         var $frame = project.iframe === true ? $("<iframe src= " + project.link + "></iframe>") : $("<img src= " + project.imgLink + " />");
@@ -152,7 +119,6 @@ $(document).ready(function(){
         }
 
         clone.find(".proj-title").text(project.name);
->>>>>>> reboot
         clone.find(".proj-link").attr("href", project.link);
         clone.find(".proj-description").text(project.description);
         clone.find(".proj-lang span").text(project.languages);
@@ -166,20 +132,6 @@ $(document).ready(function(){
     });
 
     for(var i=0; i < projects.length; i++)
-<<<<<<< HEAD
-        createNewProj(projects[i], $("#proto-proj").clone());
-
-//GLOBAL VARS & LISTENERS
-    $(".project-info-btn").hover(function(){
-        $(this).closest(".proj-container").find("iframe, .proj-info-panel").toggleClass("toggled");
-    });  
-
-    $(".proj-container").hover(function(){
-        $(this).find(".project-info-btn").addClass("flash");
-    }, function(){
-        $(this).find(".project-info-btn").removeClass("flash");
-    });  
-=======
         createNewProj(projects[i], $("#proto-proj"));
 
 //GLOBAL VARS & LISTENERS
@@ -209,7 +161,6 @@ $(document).ready(function(){
     // }, function(){
     //     $(this).find(".project-info-btn, .proj-link i").removeClass("flash");
     // });  
->>>>>>> reboot
 
 //TOP ANIMATION INNER FUNCTIONING    
 
@@ -303,9 +254,6 @@ $(document).ready(function(){
 
     setTimeout(eraseLastInput, 1000);
 
-<<<<<<< HEAD
-//SCROLLING AND FIXED BARS SYSTEM
-=======
 //SCROLLING AND BARS SYSTEM
 
     var scrollTimer, lastScrollFireTime = 0;
@@ -334,38 +282,10 @@ $(document).ready(function(){
             }, minScrollTime);
         }
     });
->>>>>>> reboot
 
     var navBarOriginCol = $("#nav-bar").css("background-color");
     var tucked = false;
 
-<<<<<<< HEAD
-    $(window).scroll(function(){
-        var top = parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
-        var height = $(window).scrollTop(); 
-
-        if(height > 50 && !tucked)
-        {
-            tucked = true;
-            $("#top").css({"top": top + "px", "position": "fixed"});
-            $("#nav-bar").toggleClass("tucked");
-            $("#nav-bar > a > div:first").removeClass("hovered");
-        }
-        else if (height <= 50 && tucked)
-        {
-            tucked = false;
-            $("#top").css({"top": "0", "position": "absolute"});
-            $("#nav-bar").toggleClass("tucked");
-            resetNavbar();
-            $("#nav-bar > a:first > div:first").addClass("hovered");
-        }
-    });
-
-    function resetNavbar()
-    {
-        $("#nav-bar").css("background-color", navBarOriginCol);
-        $("#nav-bar a").each(function(){
-=======
     function manageTopPosition()
     {
         var scrollHeight = $(window).scrollTop();
@@ -420,15 +340,10 @@ $(document).ready(function(){
     {
         $("#nav-bar").css("background-color", navBarOriginCol);
         $("#nav-bar .link").each(function(){
->>>>>>> reboot
             $(this).find("div:first").removeClass("hovered");
         });
     }
 
-<<<<<<< HEAD
-    /* waypoints functionality */
-
-=======
     function scrollRainBg()
     {
         var bg = $("#rain-bg");
@@ -452,16 +367,11 @@ $(document).ready(function(){
     });
 
     /* waypoints functionality */
->>>>>>> reboot
     function navBarReacts(sectionId)
     {
         var color = $("#" + sectionId).find(".section-title-stripe").css("background-color");
         $("#nav-bar").css("background-color", color);
-<<<<<<< HEAD
-        $("#nav-bar a").each(function(){
-=======
         $("#nav-bar .link").each(function(){
->>>>>>> reboot
             if($(this).attr("data-section") === sectionId)
                 $(this).find("div:first").addClass("hovered");
             else

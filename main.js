@@ -139,17 +139,22 @@ $(document).ready(function(){
         $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
     });
 
-    $(".link").bind("touchstart mouseover", function(e){
-        if(e.type == 'touchend'){
-            console.log("touched", $(this).attr("href"));
+    $(".link").bind("mouseover mouseout", function(e){
+        if(e.type == "mouseover"){
             $(this).addClass("hovered");
         }
+        else
+            $(this).removeClass("hovered");
     });
 
-    $(".link").bind("touchend mouseout", function(){
-        console.log("removed", $(this).attr("href"));
-        $(this).removeClass("hovered");
-    });  
+    $(".link").bind("touchstart touchend", function(e){
+        var obj = $(this);
+        setTimeout(function(){obj.removeClass("hovered");}, 100);
+    });
+
+    // $(".link").bind("touchend mouseout", function(){
+    //     $(this).removeClass("hovered");
+    // });  
 
     // $(".proj-container").hover(function(){
     //     $(this).find(".project-info-btn, .proj-link i").addClass("flash");
@@ -303,17 +308,13 @@ $(document).ready(function(){
         }
     }
 
-    var height = window.innerHeight;
     $(window).resize(function(){
         if(tucked)
         {
-            setTimeout(function(){
-                showHideHead(); 
-                $("#top").removeClass("all-trans");
-                $("#top").css("top", determineTopHeight() + "px");
-                $("#top").addClass("all-trans");
-
-            }, 500);
+            showHideHead(); 
+            $("#top").removeClass("all-trans");
+            $("#top").css("top", determineTopHeight() + "px");
+            $("#top").addClass("all-trans");
         }
     });
 

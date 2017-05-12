@@ -227,12 +227,11 @@
                     <div id="message-container">
                         <h4>Drop me a few lines:</h4>
 
-                        <form id="form-container">
-                            <input type="email" placeholder="Your Email Address:" />
-                            <textarea type="text" placeholder="Your Message:"></textarea>
-                            <button type="submit" class="btn btn-default"><i class="fa fa-paper-plane"></i></button>
+                        <form id="form-container" action="http://formspree.io/alessandro.kinkela@gmail.com" method="POST">
+                            <input type="email" name="_replyto" placeholder="Your Email Address:" />
+                            <textarea type="text" name="body" placeholder="Your Message:"></textarea>
+                            <button type="submit" value="Send"><i class="fa fa-paper-plane"></i></button>
                         </form>
-                    </div>
 
                     <div id="social-container">
                         <h4>Find me on socials:</h4>

@@ -2,12 +2,7 @@ body, html{
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: Ubuntu, monospace, Monaco;
-}
-
-.all-trans{
-    -webkit-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
+    font-family: Ubuntu, Monospace, Monaco;
 }
 
 a{
@@ -16,6 +11,11 @@ a{
 
 a:link, a:visited {
     color: black;
+}
+
+.all-trans{
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 #flex-container{
@@ -58,6 +58,9 @@ a:link, a:visited {
     flex-grow: 1;
 }
 
+/* bar links have a overlaying div which intial alpha is set to 0
+ so that when it's hovered it gets a little more opaque darkening 
+ the whole link */
 .link > div{
     width: 100%;
     height: 100%;
@@ -95,7 +98,7 @@ a:link, a:visited {
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 100vh;
+    height: 100vh; /* needed over 100% notation to prevent conflict menu bar in ios safari */
     min-height: 500px;
     display: flex;
     flex-flow: column nowrap;
@@ -167,14 +170,14 @@ a:link, a:visited {
     box-shadow: 0px 2px 2px #383636;
 }
 
-#keyboard > div{
+.key-row{
     display: flex;
     flex-flow: row;
     justify-content: space-around;
     align-items: center;
 }
 
-#keyboard .key, #keyboard #space-bar{
+.key, #space-bar{
     height: 7px;
     margin: 1px;
     border-radius: 2px;
@@ -182,7 +185,6 @@ a:link, a:visited {
 }
 
 .key{
-    position: relative;
     width: 8px;
     border-top: 1px solid black;
     border-bottom: 1px solid white;
@@ -199,7 +201,6 @@ a:link, a:visited {
 }
 
 #track-pad{
-    position: relative;
     margin: 5px 0 0 0;
     width: 40px;
     height: 25px;
@@ -217,6 +218,7 @@ a:link, a:visited {
     transition: all 0.5s ease;
 }
 
+/* when the top section is folded above the page content */
 #nav-bar.tucked{
     box-shadow: 0 8px 10px #565757; 
     margin-top: -10px; 
@@ -224,6 +226,7 @@ a:link, a:visited {
 }
 
 #nav-bar .link{
+    margin: 0;
     font-size: 1.2em;
 }
 
@@ -269,6 +272,11 @@ a:link, a:visited {
     position: absolute;
 }
 
+.section-bot{
+    width: 100%;
+    height: 2px;
+}
+
 #about-container{
     width: 90%;
     display: flex;
@@ -291,7 +299,7 @@ a:link, a:visited {
     align-content: center;
 }
 
-#coderain > #rain-bg{
+#rain-bg{
     width: 250px;
     height: 350px;
     background-image: url("imgs/code_r.png");
@@ -301,7 +309,7 @@ a:link, a:visited {
     background-attachment: scroll;
 }
 
-#coderain > #me-img{
+#me-img{
     position: absolute;
     top: 0;
     width: 250px;
@@ -387,19 +395,9 @@ a:link, a:visited {
     color: white;
 }
 
-.flash{
-    animation: flash linear 0.3s 0.4s alternate ;
-}
-
-@keyframes flash{
-    0%   { color: transparent;}
-    50% { color: white;}
-}
-
 .proj-frame{
     height: 80%;
     width: 100%; 
-
     background-position: center top; 
     background-size: cover;
     background-repeat: no-repeat;
@@ -445,15 +443,7 @@ a:link, a:visited {
     top: 20%;
 }
 
-#social-container, #message-container{
-    width: 450px;
-}
-
-#social-container > *{
-    margin-bottom: 25px;
-}
-
-#contacts-cont{
+#contacts-ext-cont{
     width: 90%;
     display: flex;
     flex-flow: row wrap;
@@ -462,14 +452,22 @@ a:link, a:visited {
     font-size: 1.5em;
 }
 
-#contacts-cont > *{
+#social-container, #message-container{
+    width: 450px;
+}
+
+#social-container > *{
+    margin-bottom: 25px;
+}
+
+#contacts-ext-cont > *{
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
 
-#contacts-cont h4, h1{
+#contacts-ext-cont h4, h1{
     text-align: center;
     margin: 25px 0;
 }
@@ -531,6 +529,7 @@ a:link, a:visited {
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
     border-radius: 5px;
     font-family: verdana;
     font-size: 0.7em; 
@@ -611,11 +610,7 @@ a:link, a:visited {
     display: none;
 } 
 
-.section-bot{
-    width: 100%;
-    height: 2px;
-}
-
+/* media queries */
 @media screen and (max-width: 768px){
     #name {justify-content: center;}
     #name > h1{font-size: 1.5em;}

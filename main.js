@@ -2,11 +2,12 @@ $(document).ready(function(){
 
 //PROJECTS MANAGEMENT
     
+    //array containing all the projects data
     var projects = [{
             link:"//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
             imgLink:"http://res.cloudinary.com/dourvudhy/image/upload/v1494365873/portf_projects_pics/quotes-app.png",
             imgLocal:"imgs/projx/quotes-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
             section:"games",
             name:"Quote Machine",
             description: "A simple game where you have to match a quote to it's author",
@@ -19,7 +20,7 @@ $(document).ready(function(){
             section:"games",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365871/portf_projects_pics/simons-app.png",
             imgLocal:"imgs/projx/simons-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
             name:"Simon's Game",
             description: "An enanched replica of the popular game from the 80's",
             languages: "html, css, js",
@@ -31,7 +32,7 @@ $(document).ready(function(){
             section:"games",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/tictactoe-app.png",
             imgLocal:"imgs/projx/tictactoe-app.png", 
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
             name:"Tic Tac Toe - WG",
             description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
             languages: "html, css, js",
@@ -43,7 +44,7 @@ $(document).ready(function(){
             section:"web-apps",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/pomodoro-app.png",
             imgLocal:"imgs/projx/pomodoro-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
             name:"Tomatimer",
             description: "A pomodoro clock, useful to regulate your work/breaks flow",
             languages: "html, css, js",
@@ -55,7 +56,7 @@ $(document).ready(function(){
             section:"web-apps",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365869/portf_projects_pics/calculator-app.png",
             imgLocal:"imgs/projx/calculator-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
             name:"Magnetic Calculator",
             description: "A fully functional animated calculator",
             languages: "html, css, js",
@@ -67,7 +68,7 @@ $(document).ready(function(){
             section:"web-apps",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341377/twitch-app_py5l5g.png",
             imgLocal:"imgs/projx/twitch-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
             name:"Twitch Favorites",
             description: "An application that lets you search for Twitch users and see status of your favorite streamers",
             languages: "html, css, js",
@@ -79,7 +80,7 @@ $(document).ready(function(){
             section:"web-apps",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494366493/portf_projects_pics/wiki-app.png",
             imgLocal:"imgs/projx/wiki-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
             name:"Wiki Dossiers",
             description: "A Wikipedia search tool, developed to experiment with Wikipedia's API",
             languages: "html, css, js",
@@ -91,7 +92,7 @@ $(document).ready(function(){
             section:"web-apps",
             imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365879/portf_projects_pics/weather-app.png", 
             imgLocal:"imgs/projx/weather-app.png",
-            iframe: false,
+            iframe: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
             name:"Local Weather",
             description: "A single page weather application. It provides local weather data by using reverse geocoding",
             languages: "html, css, js",
@@ -106,16 +107,13 @@ $(document).ready(function(){
         clone.removeAttr('id');
         var parent = $("#" + project.section + " .proj-ext-container");
 
-        if(project.iframe && $(window).width() > 768)
+        if(project.iframe === true && $(window).width() > 768) //change to hasOwnProperty('iframe'), in order to load iframes
         {
             var $iframe = $("<iframe src= " + project.link + "></iframe>");
-            clone.find(".proj-frame").append($frame);
+            clone.find(".proj-frame").append($iframe);
         }
         else
-        {
-            //add detection of broken link and provide local alternative
             clone.find(".proj-frame").css("background-image", "url(" + project.imgLocal + ")");
-        }
 
         clone.find(".proj-title").text(project.name);
         clone.find(".proj-link").attr("href", project.link);
@@ -134,10 +132,13 @@ $(document).ready(function(){
         createNewProj(projects[i], $("#proto-proj"));
 
 //GLOBAL VARS & LISTENERS
+
+    // lifts info panel on projects
     $(".project-info-btn").hover(function(){
         $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
     });
 
+    // manages hovering events on navbar links to prevent 'sticky hovering' on mobile devices
     $(".link").bind("mouseover mouseout", function(e){
         if(e.type == "mouseover"){
             $(this).addClass("hovered");
@@ -154,20 +155,12 @@ $(document).ready(function(){
 //TOP ANIMATION INNER FUNCTIONING    
 
     var $colorCode = $("#color-code"); //the changing value in the laptop screen   
-    
-    // collection of colors for screen animation (comment/uncomment code below to use section colors)
-    var screenColors = [{hex:"#fd971f", rgb:"rgb(253,151,31)"},
-                         {hex:"#a6e22e", rgb:"rgb(166,226,46)"}, 
-                         {hex:"#66d9ef", rgb:"rgb(102,217,239)"}, 
-                         {hex:"#f92672", rgb:"rgb(249,38,114)"}];
+    var screenColors = []; //holds the colors for the top animation greeting message
 
-    /*var screenColors = [];
-    // push rgb and hex property objects to sectionColorArray   
-    $(".section-title-stripe").each(function(){
-        
+    // gather the color of each section and push it to screenColors    
+    $(".section-title-stripe").each(function(){       
         var rgbCode = $(this).css("background-color");
-        var hexCode = rgbCode.match(/\d+/g);
-        
+        var hexCode = rgbCode.match(/\d+/g);      
         var color = {
             rgb : $(this).css("background-color"),
             hex : rgbToHex(hexCode)
@@ -175,7 +168,6 @@ $(document).ready(function(){
             
         screenColors.push(color);
     });
-    */
         
     // converts every r, g, b in rgb strings array to hex string
     function rgbToHex(rgb) 
@@ -186,13 +178,14 @@ $(document).ready(function(){
             var hex = parseInt(rgb[i]).toString(16);
             hex = hex.length == 1 ? "0" + hex : hex;           
             hexCode += hex;
-        }        
+        }
+
         return "#" + hexCode;
     }
 
-    //select a random color from all screenColors elements but the last
+    //select a random color, except the last one, from screenColors
     //and then move it to the end of the array 
-    //to prevent consecutive selection of the same color
+    //(this prevents consecutive selection of the same color)
     function pickColor()
     {
         var idx = Math.floor(Math.random() * (screenColors.length - 1)); 
@@ -202,14 +195,15 @@ $(document).ready(function(){
         
         return color;
     }
-        
+
+    //entry point of the laptop animation    
     function startPrintingToScreen()
     {
         var col = pickColor().hex;
 
         for(var i=0; i <= col.length; i++)
         {
-            var letter = i >= col.length ? ";" : col[i]; //last char printed should be ','
+            var letter = i >= col.length ? ";" : col[i]; //last char printed should be ';'
             printDigit(letter, 200 * i, col);
         }                
     }
@@ -220,10 +214,10 @@ $(document).ready(function(){
             var randomKIdx = Math.floor(Math.random() * $(".key").length);
             var $key = $(".key:eq("+ randomKIdx +")"); //select random key to get pressed
             $key.addClass("pressed");
-            setTimeout(() => {$key.removeClass("pressed");}, 150); //unpress the key
+            setTimeout(function(){$key.removeClass("pressed");}, 150); //unpress the key
             $colorCode.append(letter);
 
-            if(letter === ";") //the color value has been printed out
+            if(letter === ";") //the whole color value has been printed out
             {
                 $("#top-anim h2").css("color", color);
                 setTimeout(eraseLastInput, 1000); 
@@ -232,6 +226,7 @@ $(document).ready(function(){
         }, delay);
     }
 
+    //erase last printed color and restarts the sequence
     function eraseLastInput()
     {
         $colorCode.css("background-color", "lightgray");
@@ -241,10 +236,12 @@ $(document).ready(function(){
         }, 500);  
     }
 
+    //initiate the animation loop 
     setTimeout(eraseLastInput, 1000);
 
 //SCROLLING AND BARS SYSTEM
 
+    // makes the scroll-related events to fire at arbitrary timeouts (not on every scroll-call) 
     var scrollTimer, lastScrollFireTime = 0;
     $(window).on('scroll', function() {
         var minScrollTime = 10;
@@ -275,6 +272,7 @@ $(document).ready(function(){
     var navBarOriginCol = $("#nav-bar").css("background-color");
     var tucked = false;
 
+    //handles the foliding/unfolding ot the top section
     function manageTopPosition()
     {
         var scrollHeight = $(window).scrollTop();
@@ -297,6 +295,8 @@ $(document).ready(function(){
         }
     }
 
+    // handles top bars position/visibililty when window is resized 
+    // (mostly employed ti detect mobile viewport orientation)
     $(window).resize(function(){
         if(tucked)
         {
@@ -307,6 +307,7 @@ $(document).ready(function(){
         }
     });
 
+    // show/hides top name-bar
     function showHideHead()
     {
         if($(window).height() <= 450)
@@ -315,6 +316,7 @@ $(document).ready(function(){
             $("#name").css("display", "flex");
     }
 
+    // determined at what height the top section should be tucked
     function determineTopHeight()
     {
         showHideHead(); 
@@ -325,6 +327,7 @@ $(document).ready(function(){
             return parseInt($("#nav-bar").height() - $("#top").height() + $("#name").height());
     }
 
+    // restore the navbar to original color/hover state when top gets folded/unfolded
     function resetNavbar()
     {
         $("#nav-bar").css("background-color", navBarOriginCol);
@@ -333,6 +336,7 @@ $(document).ready(function(){
         });
     }
 
+    //handles the selfie animation
     function scrollRainBg()
     {
         var bg = $("#rain-bg");
@@ -344,7 +348,7 @@ $(document).ready(function(){
             $("#rain-bg").css("background-position-y", bgTop + "%");
     }
 
-    //smooth scrolling when navbar links get clicked
+    // provides smooth scrolling when navbar links get clicked
     $("#nav-bar .link").on("click", function(event){
         var target = $(this).attr("href");
         if(target !== "")
@@ -356,6 +360,8 @@ $(document).ready(function(){
     });
 
     /* waypoints functionality */
+
+    // handles navbar links highlighting
     function navBarReacts(sectionId)
     {
         var color = $("#" + sectionId).find(".section-title-stripe").css("background-color");

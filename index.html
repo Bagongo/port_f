@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://use.fontawesome.com/c4baa82464.js"></script>    
-    <script src="jquery.waypoints.min.js"></script> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://use.fontawesome.com/c4baa82464.js"></script>    
+    <script type="text/javascript" src="jquery.waypoints.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">   
-    <link rel="stylesheet" href="styles.css">
+    <link type="text/css" rel="stylesheet" href="styles.css">
      
 </head>
 
@@ -20,25 +20,27 @@
 
     <div id="flex-container">
 
+        <!-- the top fixed bar holding name and social links -->
         <div id="name" class="bar">
-            <h1>Alessandro Kinkela</h1>
+            <h1>Alessandro K</h1>
             <div>
-                <a class="link">
+                <a class="link" href="https://github.com/Bagongo" target="_blank">
                     <div><p>Github</p><i class="fa fa-github"></i></div>
                 </a>
-                <a class="link">
+                <a class="link" href="https://twitter.com/Kinkinja" target="_blank">
                     <div><p>Twitter</p><i class="fa fa-twitter"></i></div>
                 </a>
-                <a class="link">
+                <a class="link" href="https://www.linkedin.com/in/sen-k-44b11093" target="_blank">
                     <div><p>Linkedin</p><i class="fa fa-linkedin"></i></div>
                 </a>
             </div>    
         </div>
 
+        <!-- the top 'intro' overlay section holding laptop animation and
+        fixed navbar. It slides up when the user start scrolling down the site --> 
         <div id="top" class="all-trans">
 
             <div id="top-anim">
-
                 <h2>Welcome!</h2>
 
                 <div id="laptop">
@@ -48,7 +50,7 @@
                     </div>
 
                     <div id="keyboard">
-                        <div>
+                        <div class="key-row">
                             <div class="key"></div>
                             <div class="key"></div>
                             <div class="key"></div>
@@ -67,7 +69,7 @@
                             <div class="key"></div>
                         </div>
                         
-                        <div>
+                        <div class="key-row">
                             <div class="key"></div>
                             <div class="key"></div>
                             <div class="key"></div>
@@ -86,7 +88,7 @@
                             <div class="key"></div>
                         </div>
                         
-                        <div>
+                        <div class="key-row">
                             <div class="key"></div>
                             <div class="key"></div>
                             <div class="key"></div>
@@ -105,7 +107,7 @@
                             <div class="key"></div>
                         </div>
                             
-                        <div>
+                        <div class="key-row">
                             <div class="key"></div>
                             <div class="key"></div>
                             <div class="key"></div>
@@ -125,9 +127,9 @@
                     </div>
 
                 </div>
-
             </div>
 
+            <!-- the main navabar -->
             <div id="nav-bar" class="bar">
                <a class="link" href="" data-section="home">
                    <div class="hovered"><p>Home</p><i class="fa fa-home"></i></div>
@@ -147,16 +149,19 @@
             </div>
                
         </div>
-       
+
+        <!-- holds all the sections of the website -->       
         <div id="sections-wrapper" class="all-trans">
 
             <div class="section" id="about">
 
                 <div class="section-title-stripe">
-                    <a id="about-top" class="top-anchor"></a>
+                    <a id="about-top" class="top-anchor"></a> <!-- the anchor to navigate section via with navabar links -->
                     <h3 class="section-title">About me</h3>
                     <i class="section-icon fa fa-user fa-2x"></i>
                 </div>
+
+                <br />
 
                 <div id="about-container">
 
@@ -184,6 +189,7 @@
                     </div>
                 </div>                    
 
+                <!-- marks the end of the section for waypoints correct functioning-->
                 <div class="section-bot"></div>                   
             </div>
 
@@ -196,6 +202,7 @@
 
                 <br />
 
+                <!-- holds the projects dinamically loaded -->
                 <div class="proj-ext-container"></div>
 
                 <div class="section-bot"></div>                   
@@ -207,6 +214,8 @@
                     <h3 class="section-title">Games</h3>
                     <i class="section-icon fa fa-gamepad fa-2x"></i>
                 </div>
+
+                <br />
 
                 <div class="proj-ext-container"></div> 
 
@@ -222,7 +231,9 @@
                     <i class="section-icon fa fa-envelope fa-2x"></i>
                 </div>
 
-                <div id="contacts-cont">
+                <br />
+
+                <div id="contacts-ext-cont">
 
                     <div id="message-container">
                         <h4>Drop me a few lines:</h4>
@@ -236,7 +247,7 @@
                     </div>    
 
                     <div id="social-container">
-                        <h4>Or hit me up here:</h4>
+                        <h4>Or contact me here:</h4>
 
                         <div id="direct-contact-cont">
                             <div>
@@ -276,6 +287,8 @@
 
     </div>
 
+
+    <!-- the prototype (hidden) to clone for every project to be held in -->
     <div class="proj-container" id="proto-proj">
         <div class="proj-head">
             <i class="project-info-btn fa fa-info-circle"></i> 
@@ -293,8 +306,7 @@
             <p class="proj-frameworks"><u>FRAMEWORKS</u>: <span></span></p> 
         </div>
     </div>
-
-    
+   
     <script type="text/javascript" src="main.js"></script>
 
 </body>

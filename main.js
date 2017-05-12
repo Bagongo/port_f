@@ -2,104 +2,17 @@ $(document).ready(function(){
 
 //PROJECTS MANAGEMENT
     
-    //array containing all the projects data
-    var projects = [{
-            link:"//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
-            imgLink:"http://res.cloudinary.com/dourvudhy/image/upload/v1494365873/portf_projects_pics/quotes-app.png",
-            imgLocal:"imgs/projx/quotes-app.png",
-            iframe: "//codepen.io/Bagongo/embed/WRrZQq/?height=397&theme-id=0&default-tab=result&embed-version=2",
-            section:"games",
-            name:"Quote Machine",
-            description: "A simple game where you have to match a quote to it's author",
-            languages: "html, css, js",
-            frameworks: "none",
-            priority: 1
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"games",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365871/portf_projects_pics/simons-app.png",
-            imgLocal:"imgs/projx/simons-app.png",
-            iframe: "//codepen.io/Bagongo/embed/RpmpWz/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            name:"Simon's Game",
-            description: "An enanched replica of the popular game from the 80's",
-            languages: "html, css, js",
-            frameworks: "jquery",
-            priority: 3
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
-            section:"games",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/tictactoe-app.png",
-            imgLocal:"imgs/projx/tictactoe-app.png", 
-            iframe: "//codepen.io/Bagongo/embed/EWdrMG/?height=314&theme-id=0&default-tab=result&embed-version=2",
-            name:"Tic Tac Toe - WG",
-            description: "A 'War Games' themed tic tac toe game, featuring single-player and multiplayer modes",
-            languages: "html, css, js",
-            frameworks: "none",
-            priority: 2
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365870/portf_projects_pics/pomodoro-app.png",
-            imgLocal:"imgs/projx/pomodoro-app.png",
-            iframe: "//codepen.io/Bagongo/embed/xqLWoq/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            name:"Tomatimer",
-            description: "A pomodoro clock, useful to regulate your work/breaks flow",
-            languages: "html, css, js",
-            frameworks: "none",
-            priority: 2
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365869/portf_projects_pics/calculator-app.png",
-            imgLocal:"imgs/projx/calculator-app.png",
-            iframe: "//codepen.io/Bagongo/embed/gmOWEZ/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            name:"Magnetic Calculator",
-            description: "A fully functional animated calculator",
-            languages: "html, css, js",
-            frameworks: "none",
-            priority: 3
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494341377/twitch-app_py5l5g.png",
-            imgLocal:"imgs/projx/twitch-app.png",
-            iframe: "//codepen.io/Bagongo/embed/BpOyQx/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            name:"Twitch Favorites",
-            description: "An application that lets you search for Twitch users and see status of your favorite streamers",
-            languages: "html, css, js",
-            frameworks: "jquery",
-            priority: 1
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494366493/portf_projects_pics/wiki-app.png",
-            imgLocal:"imgs/projx/wiki-app.png",
-            iframe: "//codepen.io/Bagongo/embed/QdvpVw/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            name:"Wiki Dossiers",
-            description: "A Wikipedia search tool, developed to experiment with Wikipedia's API",
-            languages: "html, css, js",
-            frameworks: "jquery",
-            priority: 3
-        },
-        {
-            link: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            section:"web-apps",
-            imgLink: "http://res.cloudinary.com/dourvudhy/image/upload/v1494365879/portf_projects_pics/weather-app.png", 
-            imgLocal:"imgs/projx/weather-app.png",
-            iframe: "//codepen.io/Bagongo/embed/OWXgVY/?height=265&theme-id=0&default-tab=result&embed-version=2",
-            name:"Local Weather",
-            description: "A single page weather application. It provides local weather data by using reverse geocoding",
-            languages: "html, css, js",
-            frameworks: "none",
-            priority: 1
-        }
-    ];
+    //retrieve projects data and start individual project creation
+    $.getJSON("https://api.myjson.com/bins/t0f11", function(data){
+        var projects = data;
+
+        projects.sort(function(a, b){
+            return(b.priority - a.priority);
+        });
+
+        for(var i=0; i < projects.length; i++)
+            createNewProj(projects[i], $("#proto-proj"));
+    });
 
     function createNewProj(project, proto)
     {
@@ -107,7 +20,7 @@ $(document).ready(function(){
         clone.removeAttr('id');
         var parent = $("#" + project.section + " .proj-ext-container");
 
-        if(project.iframe === true && $(window).width() > 768) //change to hasOwnProperty('iframe'), in order to load iframes
+        if(project.hasOwnProperty("iframe") && $(window).width() > 768) //change to hasOwnProperty('iframe'), in order to load iframes
         {
             var $iframe = $("<iframe src= " + project.link + "></iframe>");
             clone.find(".proj-frame").append($iframe);
@@ -123,13 +36,6 @@ $(document).ready(function(){
         clone.css("display", "flex");       
         clone.appendTo(parent);
     }
-
-    projects.sort(function(a, b){
-        return(b.priority - a.priority);
-    });
-
-    for(var i=0; i < projects.length; i++)
-        createNewProj(projects[i], $("#proto-proj"));
 
 //GLOBAL VARS & LISTENERS
 

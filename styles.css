@@ -299,14 +299,17 @@ a:link, a:visited {
     align-content: center;
 }
 
-#rain-bg{
+#rain-bg, #rain-fg{
     width: 250px;
     height: 350px;
-    background-image: url("imgs/code_r.png");
     background-position: 50% 100%; 
     background-size: 250px auto;
     background-repeat: no-repeat;
     background-attachment: scroll;
+}
+
+#rain-bg{
+    background-image: url("imgs/code_r_front.png");
 }
 
 #me-img{
@@ -314,6 +317,12 @@ a:link, a:visited {
     top: 0;
     width: 250px;
     height: 400px;
+}
+
+#rain-fg{
+    position: absolute;
+    background-image: url("imgs/code_r_back.png");
+    opacity: .5;
 }
 
 #about-container p{

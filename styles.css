@@ -74,7 +74,7 @@ a:link, a:visited {
     margin: 0 2px;
 }
 
-.link:hover > div, .link > div.hovered{
+.link.hovered > div, .link > div.hovered{
     color: white;
     background-color: #A8ABAD;
     background-color: rgba(0, 0, 0, .2);
@@ -95,7 +95,7 @@ a:link, a:visited {
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     min-height: 500px;
     display: flex;
     flex-flow: column nowrap;

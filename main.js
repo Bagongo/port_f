@@ -137,6 +137,18 @@ $(document).ready(function(){
 //GLOBAL VARS & LISTENERS
     $(".project-info-btn").hover(function(){
         $(this).closest(".proj-container").find(".proj-frame, .proj-info-panel").toggleClass("toggled");
+    });
+
+    $(".link").bind("touchstart mouseover", function(e){
+        if(e.type == 'touchend'){
+            console.log("touched", $(this).attr("href"));
+            $(this).addClass("hovered");
+        }
+    });
+
+    $(".link").bind("touchend mouseout", function(){
+        console.log("removed", $(this).attr("href"));
+        $(this).removeClass("hovered");
     });  
 
     // $(".proj-container").hover(function(){
@@ -278,7 +290,7 @@ $(document).ready(function(){
             tucked = true;
             $("#top").css({"top": determineTopHeight() + "px", "position": "fixed"});
             $("#nav-bar").toggleClass("tucked");
-            $("#nav-bar > a > div:first").removeClass("hovered");
+            $("#nav-bar > .link > div:first").removeClass("hovered");
         }
         else if (scrollHeight <= 50 && tucked)
         {
@@ -287,7 +299,7 @@ $(document).ready(function(){
             $("#name").css("display", "flex");
             $("#nav-bar").toggleClass("tucked");
             resetNavbar();
-            $("#nav-bar > a:first > div:first").addClass("hovered");
+            $("#nav-bar > .link:first > div:first").addClass("hovered");
         }
     }
 
@@ -326,7 +338,7 @@ $(document).ready(function(){
     function resetNavbar()
     {
         $("#nav-bar").css("background-color", navBarOriginCol);
-        $("#nav-bar a").each(function(){
+        $("#nav-bar .link").each(function(){
             $(this).find("div:first").removeClass("hovered");
         });
     }
@@ -343,22 +355,22 @@ $(document).ready(function(){
     }
 
     //smooth scrolling when navbar links get clicked
-    $("#nav-bar a").on("click", function(event){
+    $("#nav-bar .link").on("click", function(event){
         var target = $(this).attr("href");
         if(target !== "")
         {
             event.preventDefault();
             var targetHeight = $(target).offset().top;
-            $('html, body').animate({scrollTop: targetHeight + $(window).scrollTop()}, 500);
+            $("html, body").animate({scrollTop: targetHeight}, 500);
         }
     });
-    /* waypoints functionality */
 
+    /* waypoints functionality */
     function navBarReacts(sectionId)
     {
         var color = $("#" + sectionId).find(".section-title-stripe").css("background-color");
         $("#nav-bar").css("background-color", color);
-        $("#nav-bar a").each(function(){
+        $("#nav-bar .link").each(function(){
             if($(this).attr("data-section") === sectionId)
                 $(this).find("div:first").addClass("hovered");
             else

@@ -155,7 +155,8 @@ $(document).ready(function(){
         function processScroll() 
         {
             manageTopPosition();
-            scrollRainBg();
+            scrollRainBg($("#rain-fg"));
+            scrollRainBg($("#rain-bg"));
         }
 
         if (!scrollTimer) 
@@ -241,15 +242,15 @@ $(document).ready(function(){
     }
 
     //handles the selfie animation
-    function scrollRainBg()
+    function scrollRainBg(element)
     {
-        var bg = $("#rain-bg");
-        var bgTop = parseInt(bg.css("background-position-y")) - 1;
+        var rain = element;
+        var rainTop = parseInt(rain.css("background-position-y")) - 1;
 
-        if(bgTop <= 0)
-            bg.css("background-position-y", "100%");
+        if(rainTop <= 0)
+            rain.css("background-position-y", "100%");
         else
-            $("#rain-bg").css("background-position-y", bgTop + "%");
+            rain.css("background-position-y", rainTop + "%");
     }
 
     // provides smooth scrolling to anchor when navbar links get clicked

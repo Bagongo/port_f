@@ -317,8 +317,12 @@ a:link, a:visited {
 }
 
 #about-container p{
-    width: 75%;
+    width: 500px;
     text-align: center;
+}
+
+#about-container p a{
+    color: skyblue;   
 }
 
 #about-imgs{

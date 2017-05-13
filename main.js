@@ -146,7 +146,7 @@ $(document).ready(function(){
 
 //SCROLLING AND BARS SYSTEM
 
-    // makes the scroll-related events to fire at arbitrary timeouts (not on every scroll-call) 
+    // makes the scroll-related events to fire at arbitrary intervals
     var scrollTimer, lastScrollFireTime = 0;
     $(window).on('scroll', function() {
         var minScrollTime = 10;
@@ -175,9 +175,8 @@ $(document).ready(function(){
     });
 
     var navBarOriginCol = $("#nav-bar").css("background-color");
-    var tucked = false;
-
-    //handles the foliding/unfolding ot the top section
+    var tucked = false; // the state of the top section (folded/unfolded)
+    // handles the folding/unfolding of the top section
     function manageTopPosition()
     {
         var scrollHeight = $(window).scrollTop();
@@ -200,8 +199,8 @@ $(document).ready(function(){
         }
     }
 
-    // handles top bars position/visibililty when window is resized 
-    // (mostly employed ti detect mobile viewport orientation)
+    // handles top bars position/visibililty when the window is resized 
+    // (mostly employed to detect mobile viewport orientation)
     $(window).resize(function(){
         if(tucked)
         {
@@ -253,7 +252,7 @@ $(document).ready(function(){
             $("#rain-bg").css("background-position-y", bgTop + "%");
     }
 
-    // provides smooth scrolling when navbar links get clicked
+    // provides smooth scrolling to anchor when navbar links get clicked
     $("#nav-bar .link").on("click", function(event){
         var target = $(this).attr("href");
         if(target !== "")

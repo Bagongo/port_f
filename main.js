@@ -11,7 +11,15 @@ $(document).ready(function(){
         });
 
         for(var i=0; i < projects.length; i++)
+        {
             createNewProj(projects[i], $("#proto-proj"));
+
+            // for proper functioning (related to their positioning) 
+            // waypoints should be loaded once 
+            // all the section are filled with their projects
+            if(i >= projects.length - 1)
+                loadWaypoints();
+        }
     });
 
     function createNewProj(project, proto)
@@ -20,7 +28,7 @@ $(document).ready(function(){
         clone.removeAttr('id');
         var parent = $("#" + project.section + " .proj-ext-container");
 
-        if(project.hasOwnProperty("iframe") && $(window).width() > 768) //change to hasOwnProperty('iframe'), in order to load iframes
+        if(projectsIframeOn && project.hasOwnProperty("iframe") && $(window).width() > 768) //change to hasOwnProperty('iframe'), in order to load iframes
         {
             var $iframe = $("<iframe src= " + project.link + "></iframe>");
             clone.find(".proj-frame").append($iframe);
@@ -41,7 +49,9 @@ $(document).ready(function(){
         clone.appendTo(parent);
     }
 
-//GLOBAL VARS & LISTENERS    
+//GLOBAL VARS & LISTENERS
+
+    var projectsIframeOn = false;    
 
     // manages hovering events on navbar links to prevent 'sticky hovering' on mobile devices
     $(".link").bind("mouseover mouseout", function(e){
@@ -279,18 +289,22 @@ $(document).ready(function(){
         });
     }
 
-    $(".section").waypoint(function(scrolling){
+    function loadWaypoints()
+    {
+        $(".section").waypoint(function(scrolling){
         if(scrolling == "down")
             navBarReacts($(this.element).attr("id"));             
-    });
+        });
 
-    $(".section-bot").waypoint(function(scrolling){
-        if(scrolling == "up")
-        {
-            var sectionId = $(this.element).closest(".section").attr("id");
-            navBarReacts(sectionId);       
-        }   
+        $(".section-bot").waypoint(function(scrolling){
+            if(scrolling == "up")
+            {
+                var sectionId = $(this.element).closest(".section").attr("id");
+                navBarReacts(sectionId);       
+            }   
 
-    }, {offset : "0%"}); 
+        }, {offset : "0%"}); 
+
+    }
 
 });

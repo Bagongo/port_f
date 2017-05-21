@@ -11,15 +11,12 @@ $(document).ready(function(){
         });
 
         for(var i=0; i < projects.length; i++)
-        {
             createNewProj(projects[i], $("#proto-proj"));
 
-            // for proper functioning (related to their positioning) 
-            // waypoints should be loaded once 
-            // all the section are filled with their projects
-            if(i >= projects.length - 1)
-                loadWaypoints();
-        }
+        // for proper functioning (related to their positioning) 
+        // waypoints should be loaded once all the section are filled with their projects
+        // hence once the ajax call has completed
+        loadWaypoints();
     });
 
     function createNewProj(project, proto)
@@ -304,7 +301,6 @@ $(document).ready(function(){
             }   
 
         }, {offset : "0%"}); 
-
     }
 
 });

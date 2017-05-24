@@ -551,7 +551,7 @@ a:link, a:visited {
 }
 
 #direct-contact-cont{
-    width: 200px;
+    width: 400px;
     height: 100px;
     display: flex;
     flex-flow: column;

@@ -48,7 +48,8 @@ $(document).ready(function(){
 
 //GLOBAL VARS & LISTENERS
 
-    var projectsIframeOn = false;    
+    // flag that overrides iframe displayability in projects 
+    var projectsIframeOn = true;    
 
     // manages hovering events on navbar links to prevent 'sticky hovering' on mobile devices
     $(".link").bind("mouseover mouseout", function(e){
